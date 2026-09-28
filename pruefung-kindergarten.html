@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kindergarten 2015 · Flächentragwerke</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="ex-kiga">
+  <a class="skip" href="#blatt">Zum Blatt</a>
+  <div class="shell">
+    <div id="nav-root"></div>
+    <div class="sheet-wrap">
+      <article class="sheet">
+        <header class="schriftfeld">
+          <div class="sf-code">26.02.2015</div>
+          <div class="sf-title">Kindergarten</div>
+          <div class="sf-meta">Prüfung<br><b>100 Punkte · 180 min</b></div>
+        </header>
+        <div class="blatt">
+          <div class="kolumne" id="blatt">
+            <p class="lead">Klassiker: punktgestütztes Dach (50 Punkte), 2-achsige Terrasse (25), Scheibe (25). Unten das Original-PDF, darüber der Rechenweg — erst selbst versuchen, dann aufklappen.</p>
+
+            <p class="pdf-tools">
+              <a href="pruefungen/komplett/150226_Kindergarten_komplett.pdf" target="_blank" rel="noopener">PDF im Tab</a>
+              <a href="lasten.html">Kochrezept Lasten</a>
+              <a href="durchstanzen.html">Durchstanzen</a>
+              <a href="platte-2achsig.html">Czerny</a>
+            </p>
+            <div class="pdf-frame">
+              <iframe title="Kindergarten komplett" src="pruefungen/komplett/150226_Kindergarten_komplett.pdf"></iframe>
+            </div>
+
+            <h2>Was die Angabe festlegt</h2>
+            <ul>
+              <li>C35/45, BSt 550S, 50 a, XC1 → <i>f</i><sub>cd</sub> = 23,3 N/mm², <i>f</i><sub>yd</sub> = 478 N/mm², <i>c</i><sub>nom</sub> = 20 mm</li>
+              <li>Dach punktgestützt h = 30 cm, Achse 6,0 m, Rundstützen Ø 30 cm, Überstand 0,5 m, nur Schnee Neuwaldegg, keine Nutzlast</li>
+              <li>Terrasse 6 × 12 m, h = 20 cm, 2-feldrig, außen gelenkig, Mitte auf Scheibe, Nutzlast 5,0 feldweise, Schnee weglassen</li>
+              <li>Scheibe 30 cm, 8,0 × 12,8 m: Stützen als Einzellasten, EG-Decke als Strecke, Eigengewicht selbst</li>
+            </ul>
+
+            <details class="beispiel">
+              <summary>Durchrechnung — Material und Lasten</summary>
+              <div class="beispiel-body">
+                <p class="rechnung"><i>c</i><sub>nom</sub> = 15 + 5 = 20 mm</p>
+                <p class="rechnung">Dach: g<sub>1</sub> = 25 · 0,30 = 7,5 &nbsp; g<sub>2</sub> = 1,8 &nbsp; s<sub>k</sub> = 0,8 · 2,2 = 1,76 kN/m²</p>
+                <p class="rechnung">q<sub>sd,Dach</sub> = 1,35 · (7,5 + 1,8) + 1,50 · 1,76 = 12,56 + 2,64 = <strong>15,20 kN/m²</strong></p>
+                <p class="rechnung">Terrasse: g<sub>1</sub> = 5,0 &nbsp; g<sub>2</sub> = 2,5 &nbsp; q<sub>k</sub> = 5,0</p>
+                <p class="rechnung">q<sub>sd,T</sub> = 1,35 · 7,5 + 1,50 · 5,0 = 10,13 + 7,50 = <strong>17,63 kN/m²</strong></p>
+              </div>
+            </details>
+
+            <details class="beispiel">
+              <summary>Durchrechnung — punktgestützte Platte</summary>
+              <div class="beispiel-body">
+                <p>Momente ohne Überstand, DLT-Beiwerte der Übung, l = 6 m:</p>
+                <p class="rechnung">M<sub>F</sub> = 0,07 · 15,20 · 36 = 38,3 kNm/m</p>
+                <p class="rechnung">M<sub>St</sub> = −0,125 · 15,20 · 36 = −68,4 kNm/m</p>
+                <p>Querverteilung Gurt/Feld (1,4 / 0,6 bzw. 1,2 / 0,8), dann μ–ω in der ungünstigeren Richtung (kleineres d). Überschlag a<sub>s</sub> ≈ |m| / (f<sub>yd</sub> · 0,8 · h).</p>
+                <p>Durchstanzen mit Überstand ü = 0,5 m, Einflussflächen 1,25 / 0,375 wie in der Ausarbeitung, β = 1,15 / 1,4 / 1,5. S1, S2, S3: „Bügel nötig?“ S1: Bügelringe skizzieren.</p>
+              </div>
+            </details>
+
+            <details class="beispiel">
+              <summary>Durchrechnung — Terrasse Czerny und Scheibe</summary>
+              <div class="beispiel-body">
+                <p>Zwei Felder 6 × 6, l<sub>y</sub>/l<sub>x</sub> = 1. Lastumordnung: q′ = g<sub>d</sub> + q<sub>d</sub>/2, q″ = ± q<sub>d</sub>/2. Feld: V2 für q′ plus V1 für q″. Stütze: beide Felder voll. k aus der Tafel, m = q lx² / k, dann Biegung beide Richtungen und Schub am Mittelauflager.</p>
+                <p>Last auf die Scheibe vereinfacht gleichförmig. Fachwerk dreimal: Stützen einzeln, Terrassenstrecke (Resultierende im Viertelspunkt erlaubt), Eigengewicht g<sub>sd</sub> = 1,35 · 25 · 0,30 · 8,0 = 81 kN/m. Zugbänder überlagern, Druck nur aus vertikalen Auflagerkräften.</p>
+              </div>
+            </details>
+          </div>
+          <aside class="rand">
+            <h2>Rotstift</h2>
+            <p>Überstand 0,5 m: Momente nein, V_sd ja.</p>
+            <p>Schnee nur Dach. Terrasse feldweise Nutzlast.</p>
+            <p>Stützenlasten nicht verschmieren.</p>
+          </aside>
+        </div>
+      </article>
+      <div id="pager-root"></div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

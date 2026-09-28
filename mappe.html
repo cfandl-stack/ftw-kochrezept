@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prüfungsmappe · Flächentragwerke</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="mappe" class="mappe-page">
+  <a class="skip" href="#blatt">Zum Blatt</a>
+  <div class="shell">
+    <div id="nav-root"></div>
+    <div class="sheet-wrap">
+      <article class="sheet">
+        <header class="schriftfeld">
+          <div class="sf-code">LV <b>875.326</b></div>
+          <div class="sf-title">Prüfungsmappe</div>
+          <div class="sf-meta">Druckfassung<br><b>Checkliste · Kernformeln</b></div>
+        </header>
+        <div class="blatt">
+          <div class="kolumne" id="blatt">
+            <p class="lead">Mitnehmen: diese Mappe plus Übungsskriptum (DLT, Czerny, μ–ω, Matten, Schneekarte). Hier stehen nur Abläufe und Zahlen, die du ohne Tafel brauchst. Keine durchgerechneten Prüfungsbeispiele — die sind im Skriptum verboten.</p>
+            <div class="print-bar pdf-tools">
+              <button type="button" data-print>Drucken / PDF speichern</button>
+              <a href="index.html">zurück zum Kochrezept</a>
+            </div>
+            <p class="note print-hint"><strong>Drucken:</strong> Strg+P, Ziel „Als PDF speichern“, Ränder Standard, Hintergründe an. Jedes Bauteil beginnt auf einer neuen Seite.</p>
+
+            <nav class="mappe-toc" aria-label="Inhalt">
+              <a href="#a">A · Immer zuerst</a>
+              <a href="#p1">B1 · Platte 1-achsig</a>
+              <a href="#p2">B2 · Platte 2-achsig</a>
+              <a href="#ds">B3 · Punktgestützt / Durchstanzen</a>
+              <a href="#uz">B4 · Unterzug / Plattenbalken</a>
+              <a href="#sch">B5 · Scheibe / wandartiger Träger</a>
+              <a href="#ko">B6 · Konsole</a>
+              <a href="#bsp">B7 · Brettsperrholz</a>
+              <a href="#tr">B8 · Treppe / Podest</a>
+            </nav>
+
+            <section class="mappe-kapitel keep" id="a">
+              <h2>A · Immer zuerst</h2>
+              <div class="flow">
+                <b>Material</b><i>→</i><b>Lasten</b><i>→</i><b>System</b><i>→</i><b>Schnittgrößen</b><i>→</i><b>Bemessung</b><i>→</i><b>Nachweise</b><i>→</i><b>Skizze</b>
+              </div>
+              <ul class="checks">
+                <li><input type=\"checkbox\"><span>Jede Zahl hat Herkunft (sonst 0 Punkte).</span></li>
+                <li><input type=\"checkbox\"><span>Sechs Kennwerte hingeschrieben: <i>f</i><sub>ck</sub>, <i>f</i><sub>cd</sub>, <i>f</i><sub>ctm</sub>, <i>f</i><sub>yk</sub>, <i>f</i><sub>yd</sub>, <i>c</i><sub>nom</sub>.</span></li>
+                <li><input type=\"checkbox\"><span>Lastaufstellung vor dem ersten Moment.</span></li>
+                <li><input type=\"checkbox\"><span>System skizziert (Lagerung, Achse, Überstand).</span></li>
+                <li><input type=\"checkbox\"><span>Bewehrungsplan: Expo, <i>c</i><sub>nom</sub>, Beton-/Stahlgüte, Bügel sichtbar.</span></li>
+              </ul>
+
+              <h3>Material (Standardprüfung)</h3>
+              <p class="eq"><i>f</i><sub>cd</sub> = <i>f</i><sub>ck</sub> / 1,5 &nbsp;·&nbsp; <i>f</i><sub>yd</sub> = 550 / 1,15 = 478 N/mm² (BSt 550S)<br>
+                XC1, 50 a: <i>c</i><sub>nom</sub> = 15 + 5 = 20 mm</p>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>C</th><th class="num"><i>f</i><sub>ck</sub></th><th class="num"><i>f</i><sub>cd</sub></th><th class="num"><i>f</i><sub>ctm</sub></th><th class="num"><i>E</i><sub>cm</sub></th></tr></thead>
+                  <tbody>
+                    <tr><td>C25/30</td><td class="num">25</td><td class="num">16,7</td><td class="num">2,6</td><td class="num">31 000</td></tr>
+                    <tr><td>C30/37</td><td class="num">30</td><td class="num">20,0</td><td class="num">2,9</td><td class="num">33 000</td></tr>
+                    <tr><td>C35/45</td><td class="num">35</td><td class="num">23,3</td><td class="num">3,2</td><td class="num">34 000</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>Lasten</h3>
+              <p class="eq">g<sub>1</sub> = 25 · <i>h</i> [m] &nbsp;·&nbsp; g<sub>ges</sub> = g<sub>1</sub> + g<sub>2</sub><br>
+                s<sub>k</sub> = 0,8 · s<sub>0</sub> &nbsp;(Flachdach)<br>
+                eine veränderliche Last: q<sub>sd</sub> = 1,35 · g<sub>ges</sub> + 1,50 · q<sub>k</sub><br>
+                zwei veränderliche: führende 1,50, weitere mit ψ<sub>0</sub> bzw. HB 1,35 auf beide</p>
+              <p>Innendecke: Nutzlast, kein Schnee. Dach: oft nur Schnee. <i>h</i> in Meter. g nicht feldweise, q schon.</p>
+
+              <h3>DLT und μ–ω (Tafeln im Skriptum)</h3>
+              <p class="eq">M = k · q · l² &nbsp;·&nbsp; V = k · q · l &nbsp;(k aus DLT-Tafel)<br>
+                μ<sub>sd</sub> = M / (b · d² · f<sub>cd</sub>) &nbsp;·&nbsp; a<sub>s</sub> = ω · b · d · f<sub>cd</sub> / f<sub>yd</sub><br>
+                μ<sub>sd,lim</sub> ≈ 0,252 (C≤C35/45) bzw. 0,206 (C≥C40/50) — Tafel prüfen<br>
+                a<sub>s,min</sub> = max(0,0013 b d ; 0,26 f<sub>ctm</sub>/f<sub>yk</sub> · b d) &nbsp;·&nbsp; a<sub>s,max</sub> = 0,04 b h<br>
+                überschlägig a<sub>s</sub> ≈ M / (f<sub>yd</sub> · 0,8 · h)</p>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th class="num">μ</th><th class="num">ω</th><th class="num">μ</th><th class="num">ω</th><th class="num">μ</th><th class="num">ω</th></tr></thead>
+                  <tbody>
+                    <tr><td class="num">0,01</td><td class="num">0,0101</td><td class="num">0,03</td><td class="num">0,0307</td><td class="num">0,05</td><td class="num">0,0518</td></tr>
+                    <tr><td class="num">0,02</td><td class="num">0,0204</td><td class="num">0,04</td><td class="num">0,0412</td><td class="num">0,06</td><td class="num">0,0625</td></tr>
+                    <tr><td class="num">0,07</td><td class="num">0,0733</td><td class="num">0,08</td><td class="num">0,0844</td><td class="num">—</td><td class="num">linterp</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="pen-line">Einheiten: M in Nmm, b und d in mm, f in N/mm². 1,35 nur auf g, 1,50 nur auf q. γ<sub>c</sub> = 1,5 nicht 1,2.</p>
+            </section>
+
+            <section class="mappe-kapitel" id="p1">
+              <h2>B1 · Platte 1-achsig</h2>
+              <p>l<sub>y</sub>/l<sub>x</sub> ≳ 2 oder nur zwei Ränder. 1 m Streifen wie Balken. Kurze Spannweite = Haupttragrichtung = äußere untere Lage.</p>
+              <ul class="checks">
+                <li><input type=\"checkbox\"><span>Spannrichtung und 1-m-Streifen skizziert.</span></li>
+                <li><input type=\"checkbox\"><span>d<sub>x</sub> = h − c<sub>nom</sub> − ∅/2, d<sub>y</sub> = d<sub>x</sub> − ∅.</span></li>
+                <li><input type=\"checkbox\"><span>M, V aus DLT oder Einfeld q l²/8, q l/2.</span></li>
+                <li><input type=\"checkbox\"><span>μ &lt; μ<sub>lim</sub>, ω, a<sub>s</sub>, min/max, Quer ≥ 20 % der Hauptbew.</span></li>
+                <li><input type=\"checkbox\"><span>Querkraftspitze reduziert (frei drehbar: Abstand d). C<sub>Rd,c</sub> = 0,12 (Platten).</span></li>
+                <li><input type=\"checkbox\"><span>Alle Feldstäbe ans Endauflager; Verankerung aus V.</span></li>
+                <li><input type=\"checkbox\"><span>Unterzug: Plattenauflager = Last des UZ.</span></li>
+              </ul>
+              <div class="zwei">
+                <div>
+                  <p class="eq">k = 1 + √(200/d) ≤ 2,0<br>
+                    V<sub>Rd,c</sub> = C<sub>Rd,c</sub> k (100 ρ<sub>l</sub> f<sub>ck</sub>)<sup>1/3</sup> b d<br>
+                    ≥ v<sub>min</sub> = 0,035 k<sup>3/2</sup> √f<sub>ck</sub> · b d</p>
+                  <p>Keine Schubbew. in der Platte, wenn V<sub>Rd,c</sub> reicht. Dann V<sub>Rd,max</sub> entfällt. Punktlast → Durchstanzen.</p>
+                </div>
+                <div>
+                  <p><strong>Mini-Beispiel</strong> Einfeld l = 5 m, h = 20 cm, q<sub>sd</sub> = 13,95 kN/m², C30/37, ϕ10, c<sub>nom</sub> = 20 mm.</p>
+                  <p class="rechnung">M = 43,59 kNm/m · d = 175 mm · μ = 0,071 · a<sub>s</sub> ≈ 5,5 cm²/m</p>
+                  <p class="rechnung">ϕ10/14 = 5,61 cm²/m · Quer ≥ 1,12 · V<sub>Rd,c</sub> ≫ V<sub>sd</sub></p>
+                </div>
+              </div>
+              <p class="pen-line">b = 1 m, nicht die ganze Platte. μ mit d, Überschlag mit 0,8 h. AS-/CS-Matten bringen die 20 % Quer schon mit.</p>
+            </section>
+
+            <section class="mappe-kapitel" id="p2">
+              <h2>B2 · Platte 2-achsig</h2>
+              <p>l<sub>y</sub>/l<sub>x</sub> ≤ 2, mindestens drei Ränder. l<sub>y</sub> = längere Seite. Alle Czerny-k auf <strong>l<sub>x</sub></strong>, auch für m<sub>y</sub>. Ecken gegen Abheben.</p>
+              <ul class="checks">
+                <li><input type=\"checkbox\"><span>Lagerungsfall V1–V6 skizziert (schraffiert = eingespannt).</span></li>
+                <li><input type=\"checkbox\"><span>Lastumordnung: q′ = g<sub>d</sub> + q<sub>d</sub>/2, q″ = ± q<sub>d</sub>/2.</span></li>
+                <li><input type=\"checkbox\"><span>Max. Feld: Nachbar ohne Nutzlast. Max. Stütze: beide Felder voll.</span></li>
+                <li><input type=\"checkbox\"><span>k aus Czerny zu l<sub>y</sub>/l<sub>x</sub> interpolieren. m = q l<sub>x</sub>² / k.</span></li>
+                <li><input type=\"checkbox\"><span>Beide Richtungen bemessen, kleineres d ist ungünstiger.</span></li>
+                <li><input type=\"checkbox\"><span>Drill / Eckbew. / freie Ränder / Öffnungen.</span></li>
+                <li><input type=\"checkbox\"><span>Querkraft nur an größter V; ohne Bügel fertig.</span></li>
+              </ul>
+              <div class="zwei">
+                <div>
+                  <p class="eq">Feld: q′ → V2 (Einspannung am Nachbarfeld)<br>
+                    q″ → V1 (alle gelenkig)<br>
+                    Stütze: q′ wie V2, q″ Einspannung nur an der Stütze</p>
+                  <p>Tafelauszug (nur Lesen lernen, Zeile im Skriptum nehmen): V1 quadratisch m<sub>xm</sub> ≈ p l<sub>x</sub>²/13,7; V2 Stütze ≈ p l<sub>x</sub>²/9.</p>
+                </div>
+                <div>
+                  <p><strong>Mini-Beispiel</strong> Terrasse 2×6 m Felder, h = 20 cm, g<sub>ges</sub> = 7,5, q<sub>k</sub> = 5,0.</p>
+                  <p class="rechnung">q<sub>sd</sub> = 17,63 kN/m² · g<sub>d</sub> = 10,13 · q<sub>d</sub> = 7,50</p>
+                  <p class="rechnung">q′ = 13,88 · q″ = ±3,75 · l<sub>y</sub>/l<sub>x</sub> = 1 → Czerny-Zeile 1,0</p>
+                  <p>Drill: oben und unten an gelenkigen Ecken, ca. 0,3 l<sub>x</sub> einbinden. Öffnung &lt; 25/35 cm: keine Zulagen.</p>
+                </div>
+              </div>
+              <p class="pen-line">k zur richtigen Lagerung. Teilweise Einspannung, die nicht gerechnet wurde: oben ≥ 25 % des Nachbarfeldmoments, Länge ≥ 0,2 l.</p>
+            </section>
+
+            <section class="mappe-kapitel" id="ds">
+              <h2>B3 · Punktgestützt und Durchstanzen</h2>
+              <p>Zwei Kapitel: Biegung (Streifen) und Durchstanzen (Rundschnitt). Überstand: Momente oft weg, V<sub>sd</sub> und u<sub>1</sub> dazu.</p>
+              <ul class="checks">
+                <li><input type=\"checkbox\"><span>0,75 ≤ l<sub>x</sub>/l<sub>y</sub> ≤ 1,33, Gleichlast, Rechteckraster — sonst FE.</span></li>
+                <li><input type=\"checkbox\"><span>DLT in x und y, dann Gurt/Feld (Stütze 1,4/0,6, Feld 1,2/0,8).</span></li>
+                <li><input type=\"checkbox\"><span>Bemessen mit kleinerem d, größtem |m|.</span></li>
+                <li><input type=\"checkbox\"><span>V<sub>sd</sub> über Einflussfläche, S1/S2/S3 getrennt.</span></li>
+                <li><input type=\"checkbox\"><span>v<sub>Ed</sub> an u<sub>0</sub> ≤ v<sub>Rd,max</sub> (sonst hilft kein Bügel).</span></li>
+                <li><input type=\"checkbox\"><span>u<sub>1</sub> bei 2d, β = 1,15 / 1,4 / 1,5. v<sub>Ed</sub> ≷ v<sub>Rd,c</sub>.</span></li>
+                <li><input type=\"checkbox\"><span>Bügel: erster Ring 0,3d–0,5d, Skizze Grundriss + Schnitt.</span></li>
+              </ul>
+              <div class="zwei">
+                <div>
+                  <p class="eq">ohne Überstand (Auffrischung):<br>
+                    S1: 1,1 l · 1,1 l · q<br>
+                    S2: 1,1 l · 0,4 l · q<br>
+                    S3: 0,4 l · 0,4 l · q<br>
+                    mit Überstand oft 1,25 und 0,375 — Skript/Angabe</p>
+                  <p class="eq">u<sub>1</sub> = π (c + 4d) innen<br>
+                    v<sub>Ed</sub> = β V / (u<sub>1</sub> d)<br>
+                    ρ<sub>l</sub> = √(ρ<sub>x</sub> ρ<sub>y</sub>) aus vorhandener Bew.</p>
+                </div>
+                <div>
+                  <p><strong>Mini-Beispiel</strong> l = 6 m, q<sub>sd</sub> = 18 kN/m², c = 30 cm, d ≈ 26 cm.</p>
+                  <p class="rechnung">S1 = 783 kN · u<sub>1</sub> = 4,21 m · β = 1,15 · v<sub>Ed</sub> ≈ 0,82 N/mm²</p>
+                  <p>Rand/Ecke: kleinere V, kürzeres u<sub>1</sub>, größeres β. Alle drei abhaken. ρ<sub>l</sub> aus eingelegter, nicht aus a<sub>s,erf</sub>.</p>
+                </div>
+              </div>
+              <p class="pen-line">Kollapsbewehrung nach DIN 1045-1 nur als Hinweis, wenn die Angabe/das Skriptum das so führt. Nachweisreihe: max am Anschnitt → Beton am u<sub>1</sub> → Bügel.</p>
+            </section>
+
+            <section class="mappe-kapitel" id="uz">
+              <h2>B4 · Unterzug / Plattenbalken</h2>
+              <p>Last aus der Platte wird Streckenlast auf den UZ. e/h ≥ 3,5 sonst als Stütze mit N rechnen.</p>
+              <ul class="checks">
+                <li><input type=\"checkbox\"><span>b<sub>eff</sub> Feld (mitwirkende Plattenbreite), Stütze oft nur Steg.</span></li>
+                <li><input type=\"checkbox\"><span>Feldmoment positiv unten, Stütze negativ oben; Spitze ausrunden.</span></li>
+                <li><input type=\"checkbox\"><span>μ–ω, Druckzone: x ≷ h<sub>f</sub> entscheidet Rechteck vs. Plattenbalken.</span></li>
+                <li><input type=\"checkbox\"><span>Querkraft: V<sub>Rd,c</sub>, sonst Bügel. Druckstrebe V<sub>Rd,max</sub>.</span></li>
+                <li><input type=\"checkbox\"><span>Durchbiegung GZG wenn verlangt.</span></li>
+              </ul>
+              <p class="eq">b<sub>eff</sub> ≈ b<sub>w</sub> + 0,2 b<sub>1</sub> + 0,1 l<sub>0</sub> (einseitig; beidseitig + 0,2 b<sub>2</sub>)<br>
+                M<sub>red</sub> = M − F t / 8 &nbsp;(Auflagerbreite)<br>
+                a<sub>sw</sub> = V<sub>sd</sub> / (z f<sub>ywd</sub> cot θ), cot θ = 1 · s<sub>l,max</sub> = 0,75 d ≤ 250 mm<br>
+                V<sub>Rd,max</sub> = α<sub>cw</sub> b<sub>w</sub> z ν<sub>1</sub> f<sub>cd</sub> / (cot θ + tan θ), ν<sub>1</sub> = 0,6 (1 − f<sub>ck</sub>/250)</p>
+              <p class="pen-line">Plattenauflagerkräfte nicht vergessen zum Eigengewicht des UZ. Stützbewehrung oben durchlaufen bzw. verankern.</p>
+            </section>
+
+            <section class="mappe-kapitel" id="sch">
+              <h2>B5 · Scheibe / wandartiger Träger</h2>
+              <p>h/b ≥ 4 → Scheibe, sonst Stütze. Kontinuierlich gelagert → Scheibe (Modellstütze). Wie Balken gelagert → WT (Fachwerk).</p>
+              <ul class="checks">
+                <li><input type=\"checkbox\"><span>Abgrenzung skizziert. Öffnung: l<sub>ö</sub> &gt; l<sub>w</sub>/3 oder ΣA &gt; 10 % → ungestützter Rand.</span></li>
+                <li><input type=\"checkbox\"><span>WT: drei Lastbilder getrennt (Stützen einzeln, Deckenstrecke, Eigengewicht), dann superponieren.</span></li>
+                <li><input type=\"checkbox\"><span>Druck und Zug in der Skizze unterschiedlich.</span></li>
+                <li><input type=\"checkbox\"><span>Zugband Z / f<sub>yd</sub> + konstruktiv. Druck am Auflager nur vertikal, wenn Angabe so.</span></li>
+                <li><input type=\"checkbox\"><span>Scheibe: l<sub>0</sub> = β l<sub>w</sub>, n = n<sub>Ed</sub>/(h<sub>w</sub> f<sub>cd</sub>), λ<sub>lim</sub>, dann 1 m Wandstreifen wie Stütze.</span></li>
+                <li><input type=\"checkbox\"><span>Netz beide Seiten, lotrecht innen, horizontal außen.</span></li>
+              </ul>
+              <div class="zwei">
+                <div>
+                  <p class="eq">g<sub>Scheibe</sub> = 25 · d<sub>S</sub> · h<sub>S</sub> [kN/m]<br>
+                    g<sub>sd</sub> = 1,35 · g<br>
+                    β: 2-seitig 1,0; eingespannt 0,85; 3-/4-seitig Formeln Skript S.352 ff.<br>
+                    n ≥ 0,41 → λ<sub>lim</sub> = 25; sonst 16/√n<br>
+                    a<sub>s,vmin</sub> ≥ 0,15 |n<sub>Ed</sub>| / f<sub>yd</sub> und ≥ 0,0015 a<sub>c</sub><br>
+                    horizontal ≥ 0,2 a<sub>s,v</sub></p>
+                </div>
+                <div>
+                  <p><strong>Mini-Beispiel</strong> d = 30 cm, h = 8,0 m: g<sub>k</sub> = 60 kN/m, g<sub>sd</sub> = 81 kN/m. Stützen V<sub>sd</sub> als Einzellasten (Kindergarten: nicht verschmieren). Lagerhalle-Angabe darf verschmieren — lesen.</p>
+                </div>
+              </div>
+              <p class="pen-line">Stirnflächen wie freie Plattenränder einfassen. Keine S-Haken. Mindest 1,5 cm²/m je Seite.</p>
+            </section>
+
+            <section class="mappe-kapitel" id="ko">
+              <h2>B6 · Konsole</h2>
+              <p>a &lt; 0,5 h → kurz (Strebe–Zugband). a ≥ 0,5 h → lang (Balken / flachere Strebe). θ oft 45°, Bereich 45–68°.</p>
+              <ul class="checks">
+                <li><input type=\"checkbox\"><span>a/h bestimmt das Modell.</span></li>
+                <li><input type=\"checkbox\"><span>F<sub>sd</sub> = 1,35 F<sub>g</sub> + 1,50 F<sub>q</sub>. H<sub>sd</sub> ≥ 0,10 F<sub>sd</sub> (NAD; Übung oft 0,20).</span></li>
+                <li><input type=\"checkbox\"><span>Zugband Z = F · a/z + H, A<sub>s</sub> = Z / f<sub>yd</sub>.</span></li>
+                <li><input type=\"checkbox\"><span>Verankerung: Konsole ab Platteninnenkante, Stütze ab Stützeninnenkante.</span></li>
+                <li><input type=\"checkbox\"><span>Druckstrebe und Knoten gegen f<sub>cd</sub>. Bügel unter der Last.</span></li>
+                <li><input type=\"checkbox\"><span>Schräge Konsole: Höhe unter der Last ≥ 0,6 h<sub>c</sub>.</span></li>
+              </ul>
+              <p class="eq"><strong>Mini-Beispiel</strong> h<sub>c</sub> = 40 cm, a = 17,5 cm → a/h = 0,44 kurz. F<sub>gk</sub> = 80, F<sub>qk</sub> = 40 → F<sub>sd</sub> = 168 kN, H<sub>sd</sub> = 33,6 kN. Ohne H fehlt ≈ 0,70 cm² Zugband.</p>
+              <p class="pen-line">Horizontalkraft nicht „vergessen dürfen“. Schlaufen, nicht gerade enden lassen.</p>
+            </section>
+
+            <section class="mappe-kapitel" id="bsp">
+              <h2>B7 · Brettsperrholz</h2>
+              <p>BSP 150 L5s (30l–30w–…): Dicke, Decklage L/C, Lagen. γ<sub>M</sub> = 1,25. GZT netto, GZG mit γ bzw. Schub der Querlagen.</p>
+              <ul class="checks">
+                <li><input type=\"checkbox\"><span>Bezeichnung gelesen, Haupttragrichtung 0°.</span></li>
+                <li><input type=\"checkbox\"><span>k<sub>mod</sub> zu NK und Lasteinwirkungsdauer (Tafel Skript/ÖNORM B 1995).</span></li>
+                <li><input type=\"checkbox\"><span>GZT: Netto-I (nur parallele Lagen, Steiner), Biegung, Rollschub.</span></li>
+                <li><input type=\"checkbox\"><span>GZG: γ-Verfahren, I<sub>ef</sub> systemabhängig (Einfeld ≠ Kragarm).</span></li>
+                <li><input type=\"checkbox\"><span>Scheibe: Decklagen + Lagerung; Knicken aus der Ebene.</span></li>
+                <li><input type=\"checkbox\"><span>f<sub>k</sub>, G<sub>R</sub> aus ETA / Unterlage 06, nicht raten.</span></li>
+              </ul>
+              <p class="eq">f<sub>d</sub> = k<sub>mod</sub> · f<sub>k</sub> / 1,25<br>
+                k<sub>mod</sub> NK1/2: ständig 0,60 · lang 0,70 · mittel 0,80 · kurz 0,90 · sehr kurz 1,10<br>
+                k<sub>def</sub> = 0,80 (NK1) / 1,00 (NK2). Schubanteil Querlagen bis ~30 % der Biegeverformung.</p>
+              <p class="pen-line">Rollschub oft enger als Biegung. L ≠ C (Decke vs. Wand). Nicht γ<sub>M</sub> = 1,5 aus dem Betonkopf.</p>
+            </section>
+
+            <section class="mappe-kapitel" id="tr">
+              <h2>B8 · Treppe / Podest</h2>
+              <p>System zuerst. Schräge Stützweite ≠ Geschosshöhe. 2h + a = 62 ± 3 cm.</p>
+              <ul class="checks">
+                <li><input type=\"checkbox\"><span>Steigung, Podestlänge 2h+2a, max. 20 Stufen bis Zwischenpodest.</span></li>
+                <li><input type=\"checkbox\"><span>Lauf 1-achsig schräg? Podest 2-achsig mit freiem Augenrand?</span></li>
+                <li><input type=\"checkbox\"><span>Last: g<sub>1</sub> = 25 · h auf schräger Fläche oder konsistent auf Grundriss — eine Konvention.</span></li>
+                <li><input type=\"checkbox\"><span>Durchlaufende Bew. Lauf/Podest erzeugt Stützmoment an der Knicklinie.</span></li>
+                <li><input type=\"checkbox\"><span>Freier Rand: Schlaufen 15 + h/10, oft 2 Ø12.</span></li>
+              </ul>
+              <p class="eq">Schräger Einfeld: M = q l²/8, A = B = q l / 2 mit l = Schräglänge<br>
+                N ≈ q · cos α · l, Q ≈ q · sin α · l &nbsp;(Angabe/Skript, Vorzeichen skizzieren)<br>
+                <strong>Mini:</strong> 16 Steigungen 18/26, 15 Auftritte · 0,316 m = 4,74 m Schräge. Nicht 2,88 m Höhe als Spannweite.</p>
+              <p class="pen-line">Freies Treppenauge ist kein gelenkiger Rand. Geländerlast am freien Rand, wenn verlangt.</p>
+              <p style="margin-top:1.2rem">Holzstütze, Stahlträger, Köcherfundament: nur wenn die Angabe gemischte Baustoffe hat — Rezept in HOW / Vorgehensweisen (Stabtragwerke), nicht hier aufblähen. Vorspannung: nur wenn in der Angabe, sonst weglassen.</p>
+            </section>
+          </div>
+        </div>
+      </article>
+      <div id="pager-root"></div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Punktgestützte Platte · Flächentragwerke</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="ds">
+  <a class="skip" href="#blatt">Zum Blatt</a>
+  <div class="shell">
+    <div id="nav-root"></div>
+    <div class="sheet-wrap">
+      <article class="sheet">
+        <header class="schriftfeld">
+          <div class="sf-code">LV <b>875.326</b></div>
+          <div class="sf-title">Punktgestützt und Durchstanzen</div>
+          <div class="sf-meta">Blatt 05<br><b>meist die meisten Punkte</b></div>
+        </header>
+        <div class="blatt">
+          <div class="kolumne" id="blatt">
+            <p class="lead">Zwei getrennte Aufgaben: Biegung über Feld- und Gurtstreifen, danach Durchstanzen am Rundschnitt. Wer die Stützenkraft aus der Biegung „wiederverwendet“, ohne Überstand, verliert die Rundschnittaufgabe.</p>
+
+            <figure class="viz">
+              <img src="img/ds-05.png" alt="Biegefläche einer punktgestützten Platte: Feldstreifen durchhängen, Stützstreifen über den Stützen nach oben">
+              <figcaption>Übung 03, Folie 5. Die Platte hängt zwischen den Stützen durch (Feld, unten Zug) und kragt über den Stützen nach oben (Stütze, oben Zug). Deshalb Gurtstreifen enger bewehren als Feldstreifen.</figcaption>
+            </figure>
+            <figure class="viz">
+              <img src="img/ds-06.png" alt="Gurtstreifen über den Stützenreihen, Feldstreifen dazwischen, 3D-Momentenverlauf">
+              <figcaption>Übung 03, Folie 6. Gurtstreifen = die Bänder über den Stützen (größtes |M|). Feldstreifen = die Mitte dazwischen.</figcaption>
+            </figure>
+
+            <h2>Biegung — Näherung mit Streifen</h2>
+            <p>System als Durchlaufträger in x und y (DLT-Tafeln), 1 m Streifen. Bei gleichen Achsabständen sind die Momente in beiden Richtungen gleich.</p>
+            <p class="eq"><span class="eq-label">übliche DLT-Beiwerte in den Übungen</span>
+              <i>M</i><sub>F</sub> = 0,07 · q<sub>sd</sub> · l²<br>
+              <i>M</i><sub>St</sub> = −0,125 · q<sub>sd</sub> · l²</p>
+            <p>Querverteilung auf Gurt- und Feldstreifen (Faktoren aus DLT-Tafel / Skript, z. B.):</p>
+            <p class="eq">Stütze: Gurt 1,4 / Feld 0,6 des Streifenmoments<br>
+              Feld: Gurt 1,2 / Feld 0,8</p>
+            <figure class="viz">
+              <img src="img/ds-17.png" alt="Querverteilung: Stützmomente Gurt 1,4 und Feld 0,6; Feldmomente Gurt 1,2 und Feld 0,8; Streifenbreiten 0,25 l und 0,5 l">
+              <figcaption>Übung 03, Folie 17. Die Faktoren gelten je Richtung. In Summe 100 % über die Gesamtbreite — du verschiebst Moment in den Gurt, erzeugst keines.</figcaption>
+            </figure>
+            <figure class="viz">
+              <img src="img/ds-19.png" alt="Grundriss mit Gurt- und Feldstreifen in x und y plus DLT-System als Zweifeldträger">
+              <figcaption>Übung 03, Folie 19. Links die Streifen für Momente in x, rechts für y. Überstand 0,5 m ist eingezeichnet, für DLT-Momente trotzdem weglassen.</figcaption>
+            </figure>
+            <p>Streifenbreiten oft 0,5·l Feld / 0,25·l Gurt je Seite — Skizze aus der Angabe. Bemessen in der Richtung mit dem größten |m|, mit dem kleineren <i>d</i> (zweite Lage).</p>
+            <p>Überschlag: a<sub>s</sub> ≈ |m| / (f<sub>yd</sub> · 0,8 · h), dann μ–ω je Streifen. Mindestbewehrung wird in Feldstreifen oft maßgebend.</p>
+
+            <h2>Stützenkräfte für Durchstanzen</h2>
+            <p>Über Lasteinflussflächen, Überstand ü mitnehmen:</p>
+            <figure class="viz">
+              <img src="img/ds-20.png" alt="Lasteinflussflächen Innenstütze S1, Randstütze S2, Eckstütze S3 mit Formeln 1,25 l und 0,375 l plus Überstand">
+              <figcaption>Übung 03, Folie 20. Die 1,25- und 0,375-Faktoren gelten, wenn der Überstand in der Einflussfläche steckt. Ohne Überstand in der Auffrischung: 1,1 / 0,4 — Angabe und Skript, nicht mischen.</figcaption>
+            </figure>
+            <p class="eq">Innen: &nbsp; 1,1 l<sub>x</sub> · 1,1 l<sub>y</sub> · q<sub>sd</sub><br>
+              Rand: &nbsp; 1,1 l · (0,4 l + ü) · q<sub>sd</sub> &nbsp; (Faktor 0,375…0,4 je nach Tafel)<br>
+              Ecke: &nbsp; (0,4 l + ü) · (0,4 l + ü) · q<sub>sd</sub></p>
+            <p>β-Faktoren (Lastausmitte), in der Übung oft:</p>
+            <p class="eq">Innenstütze β = 1,15 &nbsp; Rand β = 1,4 &nbsp; Ecke β = 1,5</p>
+
+            <h2>Kritischer Rundschnitt</h2>
+            <p>Im Abstand 2<i>d</i> von der Stützenanschnittsfläche. Runde Stütze Durchmesser c:</p>
+            <figure class="viz">
+              <img src="img/ds-43.png" alt="Kritischer Rundschnitt im Abstand 2d um die Stütze, Druckstrebenneigung 26,6 Grad">
+              <figcaption>Übung 03, Folie 43. u₁ ist der Umfang in 2d Abstand, nicht die Stützenkante. θ = 26,6° folgt aus der 2d-Geometrie.</figcaption>
+            </figure>
+            <figure class="viz">
+              <svg viewBox="0 0 740 250" role="img" aria-label="Rundschnitt Innenstütze voller Ring, Randstütze halboffen, Eckstütze Viertel">
+                <text x="16" y="22" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="13" fill="#3d4d44">u₁ ist nicht überall ein voller Kreis</text>
+                <!-- interior -->
+                <rect x="30" y="40" width="210" height="180" fill="#f3f5ee" stroke="#1e2a24"/>
+                <circle cx="135" cy="130" r="14" fill="#1e2a24"/>
+                <circle cx="135" cy="130" r="48" fill="none" stroke="#154f49" stroke-width="2" stroke-dasharray="5 3"/>
+                <text x="135" y="62" text-anchor="middle" font-size="13" fill="#154f49">Innen · voller Ring</text>
+                <text x="135" y="208" text-anchor="middle" font-size="12" fill="#3d4d44">β ≈ 1,15</text>
+                <!-- edge -->
+                <rect x="260" y="40" width="210" height="180" fill="#f3f5ee" stroke="#1e2a24"/>
+                <rect x="260" y="40" width="18" height="180" fill="#8a8f82"/>
+                <circle cx="278" cy="130" r="14" fill="#1e2a24"/>
+                <path d="M278 82 A48 48 0 0 1 278 178" fill="none" stroke="#1d4e74" stroke-width="2" stroke-dasharray="5 3"/>
+                <text x="365" y="62" text-anchor="middle" font-size="13" fill="#1d4e74">Rand · offene Seite</text>
+                <text x="365" y="208" text-anchor="middle" font-size="12" fill="#3d4d44">β ≈ 1,4</text>
+                <!-- corner -->
+                <rect x="500" y="40" width="210" height="180" fill="#f3f5ee" stroke="#1e2a24"/>
+                <rect x="500" y="40" width="18" height="180" fill="#8a8f82"/>
+                <rect x="500" y="40" width="210" height="18" fill="#8a8f82"/>
+                <circle cx="518" cy="58" r="14" fill="#1e2a24"/>
+                <path d="M566 58 A48 48 0 0 1 518 106" fill="none" stroke="#a61f18" stroke-width="2" stroke-dasharray="5 3"/>
+                <text x="605" y="130" text-anchor="middle" font-size="13" fill="#a61f18">Ecke · Viertel</text>
+                <text x="605" y="208" text-anchor="middle" font-size="12" fill="#3d4d44">β ≈ 1,5</text>
+              </svg>
+              <figcaption>Kleinere V_sd am Rand/in der Ecke, aber kürzerer Rundschnitt und größeres β. Deshalb alle drei Stützentypen abhaken, nicht nur S1.</figcaption>
+            </figure>
+            <p class="eq">u<sub>1</sub> = π · (c + 4<i>d</i>) &nbsp; (innen, voller Ring)<br>
+              Rand/Ecke: u<sub>1</sub> nur der vorhandene Perimeter (offene Seiten abziehen)</p>
+            <p class="eq">v<sub>Ed</sub> = β · V<sub>Ed</sub> / (u<sub>1</sub> · <i>d</i>)</p>
+            <p>Längsbewehrungsgrad im Rundschnitt aus der vorhandenen Biegebewehrung in x und y mitteln:</p>
+            <p class="eq">ρ<sub>l</sub> = √(ρ<sub>lx</sub> · ρ<sub>ly</sub>) ≤ 0,02<br>
+              ρ<sub>l,i</sub> = a<sub>si</sub> / (b · <i>d</i><sub>i</sub>) &nbsp; mit b<sub>eff</sub> ≈ 0,25 der Stützenbreite je Seite nach ÖNORM B 1992-1-1</p>
+
+            <h2>Nachweise — Reihenfolge</h2>
+            <div class="pos">
+              <div class="pos-nr">A</div>
+              <div>
+                <h3>Maximale Querkraft am Stützenanschnitt</h3>
+                <p>v<sub>Ed</sub> am Umfang u<sub>0</sub> gegen v<sub>Rd,max</sub>. Wenn das nicht hält: Geometrie oder Beton ändern. Bügel lösen das nicht.</p>
+              </div>
+            </div>
+            <div class="pos">
+              <div class="pos-nr">B</div>
+              <div>
+                <h3>Betontraganteil am Rundschnitt u<sub>1</sub></h3>
+                <p class="eq">v<sub>Rd,c</sub> = C<sub>Rd,c</sub> · k · (100 ρ<sub>l</sub> f<sub>ck</sub>)<sup>1/3</sup> · d<sub>eff</sub>-Faktoren<br>
+                  C<sub>Rd,c</sub> = 0,12 &nbsp; k = 1 + √(200/d) ≤ 2,0</p>
+                <p>v<sub>Ed</sub> ≤ v<sub>Rd,c</sub> → keine Durchstanzbewehrung. Sonst Pos. C.</p>
+              </div>
+            </div>
+            <div class="pos">
+              <div class="pos-nr">C</div>
+              <div>
+                <h3>Durchstanzbewehrung</h3>
+                <p>Erforderliche Bügelfläche je Ring aus der Differenz v<sub>Ed</sub> − v<sub>Rd,c</sub> (Formel im Skript, sin α = 1 bei lotrechten Bügeln). Erster Ring: 0,3<i>d</i> bis 0,5<i>d</i> vom Stützenanschnitt, weiter bis der äußere Rundschnitt ohne Bügel hält. Bügel im Rundschnitt verankern. Mindestanzahl und Maximalabstand aus Skript (Übung: oft ≥ 12 Bügel am kritischen Umfang, a ≤ 0,75<i>d</i> radial, 1,5<i>d</i> tangential — Tafel prüfen).</p>
+                <p>Skizze: Grundriss (Ringe um S1) und Schnitt. Innenstütze, Rand und Ecke getrennt abhaken.</p>
+                <figure class="viz">
+                  <img src="img/ds-45.png" alt="Fotos: Durchstanzbügel um eine Stütze und sternförmige Bewehrung in der Platte">
+                  <figcaption>Übung 03, Folie 45. Links lotrechte Bügel um die Stütze, rechts eine Variante mit aufgebogener Sternbewehrung. In der Prüfung meist Bügelringe skizzieren.</figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <details class="beispiel">
+              <summary>Beispiel — Innenstütze, l = 6 m, q<sub>sd</sub> = 18 kN/m²</summary>
+              <div class="beispiel-body">
+                <p>Rundstütze c = 30 cm, h = 30 cm, d ≈ 26 cm, kein Überstand, C30/37.</p>
+                <p class="rechnung">V<sub>sd,S1</sub> = 1,1·6 · 1,1·6 · 18 = 783 kN</p>
+                <p class="rechnung">u<sub>1</sub> = π (0,30 + 4·0,26) = π · 1,34 = 4,21 m</p>
+                <p class="rechnung">v<sub>Ed</sub> = 1,15 · 783 / (4,21 · 0,26) = 900 / 1,095 ≈ 0,82 N/mm²</p>
+                <p class="rechnung">k = 1 + √(200/260) = 1,88</p>
+                <p>ρ<sub>l</sub> aus der gewählten Biegebewehrung im Gurtstreifen über der Stütze. Liegt v<sub>Ed</sub> über v<sub>Rd,c</sub>, Bügelringe für S1 rechnen und skizzieren. S2 und S3 oft nur Kontrolle „Bewehrung erforderlich? ja/nein“.</p>
+                <p class="note">Kindergarten-Prüfung: Überstand 0,5 m ändert V<sub>sd</sub> (S1 wurde dort 855 kN). Momentenermittlung ohne Überstand, Durchstanzen mit Überstand.</p>
+              </div>
+            </details>
+          </div>
+          <aside class="rand">
+            <h2>Rotstift</h2>
+            <p>Biegung ≠ Durchstanzen. Zwei Kapitel, zwei Skizzen.</p>
+            <p>Überstand nur bei V und u<sub>1</sub>.</p>
+            <p>Rand- und Eckstütze: offener Rundschnitt, größeres β, kleinere V.</p>
+            <p>v<sub>Rd,max</sub> zuerst. Sonst hilft keine Bügelmenge.</p>
+            <p>ρ<sub>l</sub> aus wirklich eingelegter Bewehrung, nicht aus a<sub>s,erf</sub>.</p>
+          </aside>
+        </div>
+      </article>
+      <div id="pager-root"></div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

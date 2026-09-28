@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Platte 1-achsig · Flächentragwerke</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="p1">
+  <a class="skip" href="#blatt">Zum Blatt</a>
+  <div class="shell">
+    <div id="nav-root"></div>
+    <div class="sheet-wrap">
+      <article class="sheet">
+        <header class="schriftfeld">
+          <div class="sf-code">LV <b>875.326</b></div>
+          <div class="sf-title">1-achsig gespannte Platte</div>
+          <div class="sf-meta">Blatt 03<br><b>b = 1 m Streifen</b></div>
+        </header>
+        <div class="blatt">
+          <div class="kolumne" id="blatt">
+            <p class="lead">Du rechnest einen 1 m breiten Streifen wie einen Balken. Die kürzere Spannweite ist die Haupttragrichtung — dort liegt die äußere untere Lage, damit <i>d</i> maximal wird.</p>
+
+            <figure class="viz">
+              <svg viewBox="0 0 740 310" role="img" aria-label="Grundriss einachsige Platte: Lastabtrag über die kürzere Spannweite, 1-Meter-Streifen wie ein Balken">
+                <text x="16" y="20" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="13" fill="#3d4d44">Grundriss · Last fließt über die kurze Spannweite</text>
+                <rect x="40" y="40" width="200" height="230" fill="#e4ebe3" stroke="#1e2a24" stroke-width="2"/>
+                <text x="140" y="58" text-anchor="middle" font-size="12" fill="#3d4d44">l<tspan font-size="9" dy="3">y</tspan><tspan dy="-3"> lang</tspan></text>
+                <text x="140" y="258" text-anchor="middle" font-size="12" fill="#154f49">l<tspan font-size="9" dy="3">x</tspan><tspan dy="-3"> kurz = Haupttragrichtung</tspan></text>
+                <line x1="40" y1="270" x2="240" y2="270" stroke="#154f49" stroke-width="2"/>
+                <polygon points="40,270 50,266 50,274" fill="#154f49"/>
+                <polygon points="240,270 230,266 230,274" fill="#154f49"/>
+                <!-- supports on short sides -->
+                <rect x="32" y="40" width="8" height="230" fill="#1e2a24"/>
+                <rect x="240" y="40" width="8" height="230" fill="#1e2a24"/>
+                <text x="36" y="36" font-size="10" fill="#1e2a24">Wand</text>
+                <text x="220" y="36" font-size="10" fill="#1e2a24">Wand</text>
+                <!-- 1m strip -->
+                <rect x="40" y="128" width="200" height="44" fill="rgba(29,78,116,0.28)" stroke="#1d4e74" stroke-width="2"/>
+                <text x="140" y="154" text-anchor="middle" font-size="13" fill="#1d4e74">1 m Streifen</text>
+                <!-- arrows of load path -->
+                <g fill="#a61f18">
+                  <polygon points="92,150 108,150 100,138"/>
+                  <polygon points="132,150 148,150 140,138"/>
+                  <polygon points="172,150 188,150 180,138"/>
+                </g>
+                <text x="140" y="188" text-anchor="middle" font-size="11" fill="#a61f18">q → Auflager in x</text>
+                <path d="M268 150 L310 150" stroke="#1e2a24" stroke-width="2"/>
+                <polygon points="310,150 300,145 300,155" fill="#1e2a24"/>
+                <!-- beam analogy -->
+                <text x="480" y="58" text-anchor="middle" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="13" fill="#1e2a24">derselbe Streifen als Balken</text>
+                <line x1="340" y1="120" x2="620" y2="120" stroke="#1e2a24" stroke-width="6"/>
+                <polygon points="340,132 332,120 348,120" fill="#1e2a24"/>
+                <polygon points="620,132 612,120 628,120" fill="#1e2a24"/>
+                <rect x="336" y="132" width="12" height="18" fill="#1e2a24"/>
+                <rect x="612" y="132" width="12" height="18" fill="#1e2a24"/>
+                <text x="480" y="112" text-anchor="middle" font-size="12" fill="#1d4e74">b = 1 m</text>
+                <text x="480" y="168" text-anchor="middle" font-size="13" fill="#154f49">q in kN/m²  →  q · 1 m in kN/m</text>
+                <text x="480" y="196" text-anchor="middle" font-size="13" fill="#1e2a24">M = q · l<tspan font-size="10" dy="3">x</tspan><tspan dy="-3">² / 8   (Einfeld)</tspan></text>
+                <text x="480" y="230" text-anchor="middle" font-size="12" fill="#3d4d44">ly / lx ≳ 2  oder nur zwei Ränder tragen</text>
+                <text x="480" y="252" text-anchor="middle" font-size="12" fill="#a61f18">nicht die 8,20 m-Richtung bemessen</text>
+              </svg>
+              <figcaption>Der rote 1-m-Streifen ist das Rechenmodell. Alles, was du an Momenten und Querkräften aufschreibst, gilt pro Meter Plattenbreite.</figcaption>
+            </figure>
+
+            <figure class="viz">
+              <img src="img/p1-05.png" alt="Übung: Grundriss mit rot markiertem 1-Meter-Streifen über vier Felder à 6 m">
+              <figcaption>Übung 01, Folie 5. Genau diese Markierung: 1 m aus dem Grundriss schneiden, darunter der Durchlaufträger 4 × 6 m.</figcaption>
+            </figure>
+
+            <h2>System erkennen</h2>
+            <ul>
+              <li>Lastabtrag in eine Richtung (l<sub>y</sub> / l<sub>x</sub> ≳ 2, oder Lagerung nur an zwei Rändern).</li>
+              <li>Gelenkig, Durchlauf, Endfeld, Innenfeld — Beiwerte wie beim Balken.</li>
+              <li>Querbewehrung mindestens 20 % der Hauptbewehrung (Querdehnzahl Beton ≈ 0,2).</li>
+            </ul>
+            <figure class="viz">
+              <img src="img/p1-04.png" alt="Übersicht: einachsig wenn ly/lx größer 2, Berechnung als 1 m breiter Balken">
+              <figcaption>Übung 01, Folie 4. Die rote Spalte ist dieses Blatt. Daneben 2-achsig und punktgestützt — nicht mischen.</figcaption>
+            </figure>
+
+            <div class="pos">
+              <div class="pos-nr">1</div>
+              <div>
+                <h3>Statische Nutzhöhe</h3>
+                <p>Untere Lage 1 in x (Haupttragrichtung), obere Lage 2 in x. Querrichtung verliert einen Stabdurchmesser.</p>
+                <p class="eq"><i>d</i><sub>x</sub> = <i>h</i> − <i>c</i><sub>nom</sub> − <i>d</i><sub>s</sub>/2<br><i>d</i><sub>y</sub> = <i>d</i><sub>x</sub> − <i>d</i><sub>s</sub></p>
+                <figure class="viz">
+                  <svg viewBox="0 0 740 250" role="img" aria-label="Plattenschnitt: äußere untere Bewehrung in Haupttragrichtung x, dadurch größeres d">
+                    <text x="16" y="20" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="13" fill="#3d4d44">Schnitt senkrecht zur Haupttragrichtung · warum die äußere Lage in x liegt</text>
+                    <rect x="50" y="50" width="420" height="140" fill="#c5cdc0" stroke="#1e2a24" stroke-width="2"/>
+                    <text x="70" y="72" font-size="12" fill="#1e2a24">h</text>
+                    <line x1="58" y1="50" x2="58" y2="190" stroke="#1e2a24"/>
+                    <!-- cover -->
+                    <rect x="50" y="168" width="420" height="22" fill="rgba(255,255,255,0.35)"/>
+                    <text x="260" y="184" text-anchor="middle" font-size="11" fill="#3d4d44">c<tspan font-size="9" dy="3">nom</tspan></text>
+                    <!-- outer bars x, bottom -->
+                    <g fill="#a61f18">
+                      <circle cx="110" cy="158" r="8"/>
+                      <circle cx="170" cy="158" r="8"/>
+                      <circle cx="230" cy="158" r="8"/>
+                      <circle cx="290" cy="158" r="8"/>
+                      <circle cx="350" cy="158" r="8"/>
+                      <circle cx="410" cy="158" r="8"/>
+                    </g>
+                    <text x="490" y="162" font-size="13" fill="#a61f18">Lage 1 unten · x  (Haupt)</text>
+                    <!-- inner bars y as a line (seen from side) -->
+                    <line x1="70" y1="140" x2="450" y2="140" stroke="#1d4e74" stroke-width="6"/>
+                    <text x="490" y="144" font-size="13" fill="#1d4e74">Lage 2 unten · y  (Quer)</text>
+                    <!-- d_x dimension -->
+                    <line x1="40" y1="50" x2="40" y2="158" stroke="#154f49" stroke-width="1.5"/>
+                    <text x="18" y="110" font-size="13" fill="#154f49" transform="rotate(-90 18 110)">d<tspan font-size="10">x</tspan> groß</text>
+                    <!-- d_y -->
+                    <line x1="32" y1="50" x2="32" y2="140" stroke="#1d4e74" stroke-width="1.5"/>
+                    <text x="490" y="88" font-size="13" fill="#154f49">d<tspan font-size="10" dy="3">x</tspan><tspan dy="-3"> = h − c</tspan><tspan font-size="10" dy="3">nom</tspan><tspan dy="-3"> − ∅/2</tspan></text>
+                    <text x="490" y="112" font-size="13" fill="#1d4e74">d<tspan font-size="10" dy="3">y</tspan><tspan dy="-3"> = d</tspan><tspan font-size="10" dy="3">x</tspan><tspan dy="-3"> − ∅   (kleiner)</tspan></text>
+                    <text x="490" y="210" font-size="12" fill="#a61f18">Oben umgekehrt: 2. Lage in x, damit Stütze auch großes d hat.</text>
+                  </svg>
+                  <figcaption>Die Hauptbewehrung liegt außen, weil μ mit d² geht: ein verlorener Stabdurchmesser in x würde die erforderliche Bewehrung spürbar erhöhen. Quer braucht nur 20 %.</figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <div class="pos">
+              <div class="pos-nr">2</div>
+              <div>
+                <h3>Schnittgrößen</h3>
+                <p>Streifen b = 1 m, q<sub>sd</sub> in kN/m² wird zu kN/m. Einfeld gelenkig:</p>
+                <p class="eq"><i>M</i><sub>sd</sub> = q<sub>sd</sub> <i>l</i>² / 8<br><i>V</i><sub>sd</sub> = q<sub>sd</sub> <i>l</i> / 2</p>
+                <p>Durchlauf (wie DLT in der Übung, Innenfeld): Feld oft 0,07·q·l², Stütze 0,125·q·l² — Beiwert aus Skript/Tafel zur Lagerung.</p>
+              </div>
+            </div>
+
+            <div class="pos">
+              <div class="pos-nr">3</div>
+              <div>
+                <h3>Überschlägige Biegebemessung</h3>
+                <p class="eq"><i>a</i><sub>s,erf</sub> ≈ <i>M</i><sub>sd</sub> / (<i>f</i><sub>yd</sub> · 0,8 · <i>h</i>)</p>
+                <p>Damit wählst du einen plausiblen Durchmesser, bevor du μ rechnest. Einheit: M in Nmm, f in N/mm², h in mm → mm²/m.</p>
+              </div>
+            </div>
+
+            <div class="pos">
+              <div class="pos-nr">4</div>
+              <div>
+                <h3>μ–ω-Bemessung</h3>
+                <p class="eq">μ<sub>sd</sub> = <i>M</i><sub>sd</sub> / (<i>b</i> · <i>d</i>² · <i>f</i><sub>cd</sub>)</p>
+                <p>Kontrolle: μ<sub>sd</sub> &lt; μ<sub>sd,lim</sub> (Tafel im Skript, für C30/37 ohne Druckbewehrung in der Übung ca. 0,206). Sonst Druckbewehrung oder dicker querschnitt.</p>
+                <div class="table-wrap">
+                  <table>
+                    <thead>
+                      <tr><th class="num">μ</th><th class="num">ω</th><th class="num">μ</th><th class="num">ω</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td class="num">0,00</td><td class="num">0,0000</td><td class="num">0,05</td><td class="num">0,0518</td></tr>
+                      <tr><td class="num">0,01</td><td class="num">0,0101</td><td class="num">0,06</td><td class="num">0,0625</td></tr>
+                      <tr><td class="num">0,02</td><td class="num">0,0204</td><td class="num">0,07</td><td class="num">0,0733</td></tr>
+                      <tr><td class="num">0,03</td><td class="num">0,0307</td><td class="num">0,08</td><td class="num">0,0844</td></tr>
+                      <tr><td class="num">0,04</td><td class="num">0,0412</td><td class="num">0,09</td><td class="num">Tafel</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p>Zwischenwerte linear interpolieren (<code>linterp</code> wie in Mathcad).</p>
+                <p class="eq"><i>a</i><sub>s,erf</sub> = ω · <i>b</i> · <i>d</i> · <i>f</i><sub>cd</sub> / <i>f</i><sub>yd</sub></p>
+              </div>
+            </div>
+
+            <div class="pos">
+              <div class="pos-nr">5</div>
+              <div>
+                <h3>Min / Max / Quer</h3>
+                <p class="eq"><i>a</i><sub>s,min</sub> = max ( 0,0013 · <i>b</i> · <i>d</i> ; 0,26 · <i>f</i><sub>ctm</sub>/<i>f</i><sub>yk</sub> · <i>b</i> · <i>d</i> )<br>
+                  <i>a</i><sub>s,max</sub> = 0,04 · <i>b</i> · <i>h</i><br>
+                  Quer: mindestens 20 % der Hauptbewehrung</p>
+                <p>Wahl: Einzelstäbe oder AS-/CS-Matten (asymmetrisch, 20 % Quer schon drin). Mindestplattendicke nach Skript nicht unterschreiten.</p>
+              </div>
+            </div>
+
+            <div class="pos">
+              <div class="pos-nr">6</div>
+              <div>
+                <h3>Querkraft</h3>
+                <p>Spitze am Auflager reduzieren (frei drehbar: maßgebend im Abstand <i>d</i> vom Auflagerrand). Platten: C<sub>Rd,c</sub> = 0,12 (im Kurs, nicht der Balkenwert 0,18).</p>
+                <p class="eq"><i>k</i> = 1 + √(200/<i>d</i>) ≤ 2,0 &nbsp; (<i>d</i> in mm)<br>
+                  ρ<sub>l</sub> = <i>a</i><sub>s</sub> / (<i>b</i> <i>d</i>) ≤ 0,02<br>
+                  <i>v</i><sub>Rd,c</sub> = C<sub>Rd,c</sub> · <i>k</i> · (100 ρ<sub>l</sub> <i>f</i><sub>ck</sub>)<sup>1/3</sup> ≥ <i>v</i><sub>min</sub><br>
+                  <i>v</i><sub>min</sub> = 0,035 · <i>k</i><sup>3/2</sup> · √<i>f</i><sub>ck</sub><br>
+                  <i>V</i><sub>Rd,c</sub> = <i>v</i><sub>Rd,c</sub> · <i>b</i> · <i>d</i></p>
+                <p>Platten möglichst ohne Schubbewehrung. Ist V<sub>Rd,c</sub> ausreichend, entfällt V<sub>Rd,max</sub>. Punktuelle Lasteinleitung → Durchstanzen, nicht Plattenquerkraft.</p>
+              </div>
+            </div>
+
+            <div class="pos">
+              <div class="pos-nr">7</div>
+              <div>
+                <h3>GZG und Verankerung</h3>
+                <p>Durchbiegung unter quasi-ständiger Last: w ≤ <i>l</i>/250, bei empfindlichen Nachbarbauteilen <i>l</i>/500. Schalungsüberhöhung max. <i>l</i>/250. Genaues EI aus Zustand I/II wird in der Prüfung oft nur überschlägig verlangt.</p>
+                <p>Feldbewehrung am Endauflager: Zugkraft aus der Auflagerquerkraft. Alle Stäbe an das Auflager führen (abgestuft: mindestens 50 %). Vorhandene Verankerungslänge bis Außenkante minus Deckung prüfen.</p>
+              </div>
+            </div>
+
+            <details class="beispiel">
+              <summary>Beispiel — Bürodecke, Einfeld 5,0 m</summary>
+              <div class="beispiel-body">
+                <p>h = 20 cm, l = 5,0 m gelenkig, C30/37, BSt 550S, XC1, g<sub>2</sub> = 2,0 kN/m², q<sub>k</sub> = 3,0 kN/m², ϕ10.</p>
+                <p class="rechnung">g<sub>1</sub> = 5,0 &nbsp; g<sub>ges</sub> = 7,0 &nbsp; q<sub>sd</sub> = 1,35·7,0 + 1,5·3,0 = 13,95 kN/m²</p>
+                <p class="rechnung"><i>M</i><sub>sd</sub> = 13,95 · 5² / 8 = 43,59 kNm/m</p>
+                <p class="rechnung"><i>V</i><sub>sd</sub> = 13,95 · 5 / 2 = 34,88 kN/m</p>
+                <p class="rechnung"><i>c</i><sub>nom</sub> = 20 mm, <i>d</i> = 200 − 20 − 5 = 175 mm</p>
+                <p class="rechnung">μ<sub>sd</sub> = 43,59·10<sup>6</sup> / (1000 · 175² · 20) = 0,0711 &nbsp; &lt; μ<sub>lim</sub></p>
+                <p class="rechnung">ω ≈ 0,0745 (zwischen 0,07 und 0,08 interpoliert)</p>
+                <p class="rechnung"><i>a</i><sub>s,erf</sub> = 0,0745 · 1000 · 175 · 20 / 478 = 5,46 cm²/m</p>
+                <p class="rechnung"><i>a</i><sub>s,min</sub> = 0,26 · 2,9/550 · 1000 · 175 = 2,40 cm²/m</p>
+                <p class="rechnung">gewählt ϕ10/14 → 5,61 cm²/m &nbsp; Quer ≥ 1,12 cm²/m</p>
+                <p class="rechnung"><i>k</i> = 2,0 (Begrenzung) &nbsp; V<sub>Rd,c</sub> ≈ 90 kN/m ≫ V<sub>sd,red</sub> ≈ 31 kN/m</p>
+                <p class="ok">Keine Schubbewehrung. Nachweis Druckstrebe entfällt.</p>
+              </div>
+            </details>
+          </div>
+          <aside class="rand">
+            <h2>Rotstift</h2>
+            <p>b = 1 m, nicht die ganze Plattenbreite.</p>
+            <p>μ mit <i>d</i>, überschlägig mit 0,8·<i>h</i> — nicht vertauschen.</p>
+            <p>Querbewehrung 20 %, sonst Querdehnung ungedeckt.</p>
+            <p>C<sub>Rd,c</sub> = 0,12 für Platten im Kurs.</p>
+            <p>Unterzug: Auflagerkräfte der Platte sind Last des Unterzugs.</p>
+          </aside>
+        </div>
+      </article>
+      <div id="pager-root"></div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

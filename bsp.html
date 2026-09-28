@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brettsperrholz · Flächentragwerke</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="bsp">
+  <a class="skip" href="#blatt">Zum Blatt</a>
+  <div class="shell">
+    <div id="nav-root"></div>
+    <div class="sheet-wrap">
+      <article class="sheet">
+        <header class="schriftfeld">
+          <div class="sf-code">LV <b>875.326</b></div>
+          <div class="sf-title">Brettsperrholz</div>
+          <div class="sf-meta">Blatt 08<br><b>Platte GZT / GZG · Scheibe</b></div>
+        </header>
+        <div class="blatt">
+          <div class="kolumne" id="blatt">
+            <p class="lead">BSP ist kein Stahlbeton mit anderem E-Modul. Nettoquerschnitt, Rollschub in den Querlagen, und GZT und GZG verwenden <em>verschiedene</em> Querschnittswerte.</p>
+
+            <h2>Bezeichnung lesen</h2>
+            <p class="eq">BSP 150 L5s (30l–30w–30l–30w–30l)</p>
+            <ul>
+              <li>150 = Elementdicke in mm</li>
+              <li>L = Decklage längs zur langen Seite (Decke/Dach/Träger); C oder Q = Decklage quer (Wandelemente)</li>
+              <li>5s = fünf Lagen, abwechselnd längs/quer</li>
+              <li>(30l–30w–…) = Dicke und Orientierung jeder Lage</li>
+            </ul>
+            <p>Holz meist C24. Verwendung über ETA / ÖNORM EN 16351. Kennwerte nicht aus dem Stahlbeton-Kopf, sondern aus der Zulassung bzw. Referenzunterlage 06.</p>
+
+            <h2>Beiwerte Holz</h2>
+            <p class="eq">γ<sub>M</sub> = 1,25 &nbsp; (Empfehlung ÖNORM B 1995 für BSP)<br>
+              f<sub>d</sub> = k<sub>mod</sub> · f<sub>k</sub> / γ<sub>M</sub></p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>NK</th>
+                    <th class="num">ständig</th>
+                    <th class="num">lang</th>
+                    <th class="num">mittel</th>
+                    <th class="num">kurz</th>
+                    <th class="num">sehr kurz</th>
+                    <th class="num">k<sub>def</sub></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>1 und 2</td><td class="num">0,60</td><td class="num">0,70</td><td class="num">0,80</td><td class="num">0,90</td><td class="num">1,10</td><td class="num">0,80 / 1,00</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Nutzungsklasse 1 und 2 zugelassen. k<sub>def</sub> = 0,80 in NK1, 1,00 in NK2 (Kriechen für GZG).</p>
+
+            <h2>Tragwirkung Platte</h2>
+            <ul>
+              <li>Haupttragrichtung 0° hat die höhere Steifigkeit (Längslagen).</li>
+              <li>Nur die Lagen parallel zur Spannrichtung zählen für Biegung (Netto-I, Satz von Steiner).</li>
+              <li>Querlagen werden vor allem auf Schub beansprucht und versagen tangential zu den Jahrringen (Rollschub). Rollschubfestigkeit liegt in der Größenordnung der doppelten Zugfestigkeit rechtwinkelig zur Faser — oft der kritische Nachweis.</li>
+            </ul>
+
+            <h3>GZT</h3>
+            <p>Nachweise mit <strong>Nettoquerschnitt</strong>, ohne Schubnachgiebigkeit. Biegung, Schub (inkl. Rollschub), Auflagerpressung. Querschnittswerte auf 1 m Breite, wenn eine Richtung dominiert.</p>
+
+            <h3>GZG</h3>
+            <p>Schubnachgiebigkeit der Querlagen mitnehmen — sonst ist die Durchbiegung zu klein. Zwei Wege im Kurs:</p>
+            <ul>
+              <li><strong>γ-Verfahren:</strong> Längslagen mit γ &lt; 1 abmindern. I<sub>ef</sub> hängt von der Spannweite ab (Einfeld / Durchlauf / Kragarm haben andere Referenzlängen). Gut, wenn das System dazu passt.</li>
+              <li><strong>Timoshenko / κ:</strong> Schubsteifigkeit mit Korrekturbeiwert, für beliebige Systeme, mehr Aufwand.</li>
+            </ul>
+            <p>Verformung = Biegung der Hauptlagen + Schub der Querlagen. Der Schubanteil kann bis etwa 30 % der Biegeverformung erreichen. Enddurchbiegung mit k<sub>def</sub> (ständig + quasi-ständig).</p>
+
+            <h2>BSP-Scheibe</h2>
+            <p>Scheibe oder hochkant Träger: Orientierung der Decklagen <em>und</em> Lagerung. Druck in Decklagenrichtung → Knicken aus der Ebene, zylindrisches Ausweichen. Knicklänge und Verhältnis Fläche / Steifigkeit gegen Ausweichen. Stabilität nicht mit der Stahlbeton-Modellstütze verwechseln.</p>
+
+            <details class="beispiel">
+              <summary>Beispiel — Ablauf einachsig, 5 m Spannweite</summary>
+              <div class="beispiel-body">
+                <p>Element z. B. BSP 150 L5s, Einfeld 5 m, Decke NK1, mittlere Lasteinwirkung (Nutzlast).</p>
+                <ol>
+                  <li>Aufbau lesen, Netto-I der drei Längslagen (Steiner).</li>
+                  <li>k<sub>mod</sub> = 0,80 (mittel, NK1), γ<sub>M</sub> = 1,25 → f<sub>d</sub>.</li>
+                  <li>GZT: σ<sub>m,d</sub> ≤ f<sub>md</sub>, Rollschub in den Querlagen, Schub in den Längslagen.</li>
+                  <li>GZG: γ-Verfahren mit Referenzlänge Einfeld, w<sub>inst</sub> und w<sub>fin</sub> mit k<sub>def</sub> = 0,80 gegen l/300 bzw. l/250 je nach Anforderung im Skript.</li>
+                </ol>
+                <p>Zahlen für f<sub>k</sub> und G<sub>R</sub> stehen in der ETA / in 06_BSP_Referenzunterlagen — nicht raten.</p>
+              </div>
+            </details>
+          </div>
+          <aside class="rand">
+            <h2>Rotstift</h2>
+            <p>GZT: netto. GZG: γ bzw. Schub.</p>
+            <p>I<sub>ef</sub> ist systemabhängig — Einfeld-γ nicht auf den Kragarm kippen.</p>
+            <p>L und C nicht verwechseln: Wand vs. Decke.</p>
+            <p>γ<sub>M</sub> = 1,25, nicht 1,5.</p>
+            <p>Rollschub ist oft enger als Biegung.</p>
+          </aside>
+        </div>
+      </article>
+      <div id="pager-root"></div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

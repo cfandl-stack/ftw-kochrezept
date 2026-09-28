@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Konsole · Flächentragwerke</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="konsole">
+  <a class="skip" href="#blatt">Zum Blatt</a>
+  <div class="shell">
+    <div id="nav-root"></div>
+    <div class="sheet-wrap">
+      <article class="sheet">
+        <header class="schriftfeld">
+          <div class="sf-code">LV <b>875.326</b></div>
+          <div class="sf-title">Konsole</div>
+          <div class="sf-meta">Blatt 07<br><b>Strebe und Zugband</b></div>
+        </header>
+        <div class="blatt">
+          <div class="kolumne" id="blatt">
+            <p class="lead">Eine Zahl entscheidet das Modell: der Abstand a der Last vom Stützenanschnitt, bezogen auf die Konsolenhöhe h.</p>
+
+            <p class="eq">kurze Konsole: a &lt; 0,5 h &nbsp;→ Streben-Zugband (Fachwerk)<br>
+              lange Konsole: a ≥ 0,5 h &nbsp;→ Balken / Stabwerk mit flacherer Strebe</p>
+            <p>Druckstrebenneigung nach DAfStb oft θ = 45°. Zulässiger Bereich je nach Vorschrift etwa 45° bis 68°.</p>
+
+            <div class="pos">
+              <div class="pos-nr">1</div>
+              <div>
+                <h3>Geometrie</h3>
+                <p>h<sub>c</sub>, b<sub>w</sub>, a<sub>c</sub>, Auflagerplattenlänge, <i>c</i><sub>nom</sub>. Abgeschrägte Konsole unter dem Lastangriff mindestens 0,6·h<sub>c</sub> hoch.</p>
+              </div>
+            </div>
+            <div class="pos">
+              <div class="pos-nr">2</div>
+              <div>
+                <h3>Lasten</h3>
+                <p class="eq">F<sub>sd</sub> = 1,35 F<sub>gk</sub> + 1,50 F<sub>qk</sub><br>
+                  H<sub>sd</sub> ≥ 0,10 F<sub>sd</sub> &nbsp; (ÖNORM B 1992-1-1 NAD; in der Übung oft 0,20 F<sub>sd</sub> angesetzt)</p>
+                <p>Horizontalkraft nicht vergessen — ohne H wird das Zugband zu klein.</p>
+              </div>
+            </div>
+            <div class="pos">
+              <div class="pos-nr">3</div>
+              <div>
+                <h3>Zugband</h3>
+                <p>Innere Hebelarm z aus der Strebenneigung und der Nutzhöhe. Zugkraft:</p>
+                <p class="eq">Z<sub>sd</sub> = F<sub>sd</sub> · a / z + H<sub>sd</sub><br>
+                  A<sub>s,zug</sub> = Z<sub>sd</sub> / f<sub>yd</sub></p>
+                <p>Verankerung im Konsolenbereich ab Innenkante der Auflagerplatte, im Stützenbereich ab Innenkante der Stütze. Schlaufen oder Randbügel, nicht „gerade in der Luft enden“.</p>
+              </div>
+            </div>
+            <div class="pos">
+              <div class="pos-nr">4</div>
+              <div>
+                <h3>Druckstrebe und Knoten</h3>
+                <p>Druckspannung in der Strebe und unter der Lastplatte gegen f<sub>cd</sub> mit Abminderung für den Knoten (mehrere Druckstreben / Zug). Bügel oder Steckbügel zur Spaltzugdeckung unter der Last.</p>
+              </div>
+            </div>
+            <div class="pos">
+              <div class="pos-nr">5</div>
+              <div>
+                <h3>Bewehrungsführung</h3>
+                <p>Kurze Konsole: konzentriertes Zugband oben, vertikale Bügel. Lange Konsole: zusätzlich Biegebewährung wie ein kurzer Kragarm. Skizze mit Verankerungslängen.</p>
+              </div>
+            </div>
+
+            <details class="beispiel">
+              <summary>Beispiel — STB-Konsole aus der Übung</summary>
+              <div class="beispiel-body">
+                <p>h<sub>c</sub> = 40 cm, b<sub>w</sub> = 35 cm, a<sub>c</sub> = 17,5 cm, <i>c</i><sub>nom</sub> = 3,5 cm. F<sub>gk</sub> = 80 kN, F<sub>qk</sub> = 40 kN.</p>
+                <p class="rechnung">a / h = 17,5 / 40 = 0,44 &lt; 0,5 → <strong>kurze Konsole</strong></p>
+                <p class="rechnung">F<sub>sd</sub> = 1,35·80 + 1,50·40 = 108 + 60 = 168 kN</p>
+                <p class="rechnung">H<sub>sd</sub> = 0,20 · 168 = 33,6 kN &nbsp; (≥ 10 % nach NAD)</p>
+                <p>Nutzhöhe grob: d ≈ 400 − 35 − ds/2. Bei θ = 45° ist z in der Größenordnung von d minus Knotenabstand. Dann Z = F·a/z + H, A<sub>s</sub> = Z/478 N/mm², Schlaufen wählen, Verankerung ab Platteninnenkante.</p>
+                <p class="ok">Ohne die 33,6 kN Horizontalkraft wäre das Zugband um H/f<sub>yd</sub> ≈ 0,70 cm² zu klein.</p>
+              </div>
+            </details>
+          </div>
+          <aside class="rand">
+            <h2>Rotstift</h2>
+            <p>a und h in derselben Einheit vergleichen.</p>
+            <p>H<sub>sd</sub> mindestens 10 % von F<sub>sd</sub>.</p>
+            <p>Verankerung nicht ab Stützenachse messen.</p>
+            <p>Schräge Konsole: Höhe unter der Last ≥ 0,6 h<sub>c</sub>.</p>
+          </aside>
+        </div>
+      </article>
+      <div id="pager-root"></div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

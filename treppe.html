@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Treppe und Podest · Flächentragwerke</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="treppe">
+  <a class="skip" href="#blatt">Zum Blatt</a>
+  <div class="shell">
+    <div id="nav-root"></div>
+    <div class="sheet-wrap">
+      <article class="sheet">
+        <header class="schriftfeld">
+          <div class="sf-code">LV <b>875.326</b></div>
+          <div class="sf-title">Treppenlauf mit Podest</div>
+          <div class="sf-meta">Blatt 09<br><b>System zuerst</b></div>
+        </header>
+        <div class="blatt">
+          <div class="kolumne" id="blatt">
+            <p class="lead">In Altprüfungen selten der große Punkteblock — in der Übung ein eigenes Beispiel. Der Fehler liegt fast immer im statischen System, nicht in μ–ω.</p>
+
+            <h2>Geometrie</h2>
+            <p>Steigungsverhältnis aus Stufenhöhe h und Auftritt a:</p>
+            <p class="eq">2h + a = 62 cm ± 3 cm</p>
+            <p>Zwischenpodest nach höchstens 20 Stufen (Haupttreppe). Podestlänge 2h + 2a, damit der Gehrhythmus hält. Lauf und Podest sind ein Bauteil oder zwei, je nachdem, ob die Fuge trägt oder nur schwindet.</p>
+
+            <h2>Statische Systeme (typisch Stahlbeton)</h2>
+            <ul>
+              <li><strong>Lauf als schräge Platte</strong> zwischen zwei Podesten / Wänden: einachsig in Laufrichtung, Nutzlast auf die schräge Fläche oder auf die Horizontale — Angabe / Skript folgen, nicht mischen.</li>
+              <li><strong>Podest als Platte</strong>, drei- oder vierseitig gelagert, oft mit freiem Rand am Treppenauge.</li>
+              <li><strong>Lauf + Podest durchlaufend:</strong> Stützmoment an der Knicklinie. Abwicklung in die Ebene zeichnen, bevor du Czerny oder den Streifen ansetzt.</li>
+              <li>Einspannung ins Treppenhausmauerwerk nur, wenn die Wand das hergibt. Sonst gelenkig auf Podestbalken / Wandscheibe.</li>
+            </ul>
+
+            <h2>Lasten</h2>
+            <p>Eigengewicht aus der wahren Plattenlänge (schräg): g<sub>1</sub> = 25 · h<sub>Platte</sub> auf die schräge Fläche, oder als Vertikallast auf die Grundrissfläche umrechnen — eine Konvention durchhalten. Nutzlast Treppen nach Kategorie (oft 5 kN/m² in öffentlichen Bauten, Angabe gilt). Kein Schnee im Innenlauf.</p>
+            <p>Geländerlast am freien Rand als Horizontallast, wenn verlangt — konstruktiv Schlaufen wie bei der freien Plattenkante.</p>
+
+            <h2>Rechenablauf</h2>
+            <div class="pos">
+              <div class="pos-nr">1</div>
+              <div>
+                <h3>System skizzieren</h3>
+                <p>Auflager, freie Ränder, Knick Lauf/Podest, Spannrichtung. Ist der Lauf 1-achsig? Das Podest 2-achsig?</p>
+              </div>
+            </div>
+            <div class="pos">
+              <div class="pos-nr">2</div>
+              <div>
+                <h3>Lasten</h3>
+                <p>Wie Blatt 02, plus Schräge. q<sub>sd</sub> für Lauf und Podest getrennt, wenn die Dicken oder Nutzlasten differieren.</p>
+              </div>
+            </div>
+            <div class="pos">
+              <div class="pos-nr">3</div>
+              <div>
+                <h3>Schnittgrößen</h3>
+                <p>Lauf: schräger Einfeld- oder Durchlaufträger auf 1 m. Podest: Czerny oder Streifen. Anschlussmoment am Podest nicht „gelenkig hoffen“, wenn die Bewehrung durchläuft.</p>
+              </div>
+            </div>
+            <div class="pos">
+              <div class="pos-nr">4</div>
+              <div>
+                <h3>Bemessung</h3>
+                <p>Plattenrezept von Blatt 03/04. Obere Bewehrung an der Knicklinie, Verankerung ins Podest. Freier Rand: Schlaufen 15 + h/10.</p>
+              </div>
+            </div>
+
+            <details class="beispiel">
+              <summary>Beispiel — Systemwahl vor der Zahl</summary>
+              <div class="beispiel-body">
+                <p>Gerade Treppe, 16 Steigungen à 18 cm, Auftritt 26 cm (2·18 + 26 = 62). Podest 1,20 m tief, Laufbreite 1,20 m, Platte 18 cm, C30/37, q<sub>k</sub> = 5 kN/m², gelenkig auf zwei Podestbalken.</p>
+                <p class="rechnung">Schräglänge des Laufs = 15 Auftritte · √(0,18² + 0,26²) = 15 · 0,316 = 4,74 m</p>
+                <p class="rechnung">g<sub>1</sub> = 25 · 0,18 = 4,50 kN/m² &nbsp; q<sub>sd</sub> = 1,35·(4,50 + g<sub>2</sub>) + 1,50·5</p>
+                <p>Wenn der Lauf nur an den Podesten aufliegt: 1-achsiger Streifen in Laufrichtung, M = q l²/8 mit der schrägen Stützweite. Podest dreiseitig mit freiem Augenrand: Drill- und Randbewehrung wie Blatt 04.</p>
+                <p class="note">Die 5,06 m nicht mit der Geschosshöhe 16·0,18 = 2,88 m verwechseln — das eine ist die Lauf spannweite, das andere die Höhe.</p>
+              </div>
+            </details>
+          </div>
+          <aside class="rand">
+            <h2>Rotstift</h2>
+            <p>2h + a prüfen, bevor du rechnest.</p>
+            <p>Schräge Stützweite ≠ Grundrisslänge.</p>
+            <p>Freier Rand am Auge ist kein gelenkiger Rand.</p>
+            <p>Durchlaufende Bewehrung Lauf/Podest erzeugt Stützmoment.</p>
+          </aside>
+        </div>
+      </article>
+      <div id="pager-root"></div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

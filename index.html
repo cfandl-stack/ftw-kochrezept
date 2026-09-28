@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prüfungsablauf · Flächentragwerke</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="start">
+  <a class="skip" href="#blatt">Zum Blatt</a>
+  <div class="shell">
+    <div id="nav-root"></div>
+    <div class="sheet-wrap">
+      <article class="sheet">
+        <header class="schriftfeld">
+          <div class="sf-code">LV <b>875.326</b></div>
+          <div class="sf-title">Prüfungsablauf</div>
+          <div class="sf-meta">Blatt 00<br><b>180 min · 100 Punkte</b></div>
+        </header>
+        <div class="blatt">
+          <div class="kolumne" id="blatt">
+            <p class="lead">Jede FTW-Prüfung ist ein Gebäude mit 2–3 Bauteilen. Links: das Kochrezept (Ablauf). Darunter: echte Altprüfungen als PDF plus Durchrechnung. Du gewinnst Zeit, wenn du immer dieselbe Reihenfolge fährst.</p>
+
+            <div class="flow">
+              <b>Material</b><i>→</i>
+              <b>Lasten</b><i>→</i>
+              <b>System</b><i>→</i>
+              <b>Schnittgrößen</b><i>→</i>
+              <b>Bemessung</b><i>→</i>
+              <b>Nachweise</b><i>→</i>
+              <b>Bewehrung</b>
+            </div>
+
+            <h2>Was die Angabe immer zuerst will</h2>
+            <p>Auf dem Deckblatt steht sinngemäß: Werte ohne ersichtliche Herkunft werden nicht akzeptiert. Deshalb kommen Material und Lastaufstellung <em>vor</em> der ersten Formel für Momente.</p>
+            <div class="pruef-grid">
+              <article>
+                <h3>Typische Punkte</h3>
+                <p>Punktgestützte Platte + Durchstanzen oft 40–50 Punkte. Zweiachsig oder Scheibe je 20–25. Bewehrungsskizze kann extra 25 Punkte sein.</p>
+              </article>
+              <article>
+                <h3>Was du mitnehmen darfst</h3>
+                <p>Alle Unterlagen außer Übungsmitschrift und zahlenmäßig durchgerechnete Beispiele. Czerny-Tafeln, μ-ω-Tafel und Skriptformeln sind die Zeitfresser, wenn du sie nicht findest.</p>
+              </article>
+              <article>
+                <h3>Gebäude, nicht Einzelaufgabe</h3>
+                <p>Die Last aus der Platte geht in die Scheibe. Die Stützenkraft der Dachplatte ist Einzellast auf dem wandartigen Träger. Nicht jedes Bauteil neu erfinden.</p>
+              </article>
+              <article>
+                <h3>Skizzen zählen</h3>
+                <p>Fachwerkmodell, Rundschnitt, Bewehrungsführung. Druck und Zug unterschiedlich kennzeichnen. Innen-/Rand-/Eckstütze nicht verwechseln.</p>
+              </article>
+            </div>
+            <p><a href="mappe.html">Prüfungsmappe zum Ausdrucken</a> — Checklisten und Kernformeln, Tafeln bleiben im Übungsskriptum. <a href="pruefungen.html">Altprüfungen als PDF</a> daneben. Das ausführliche <a href="pruefungen.html#kochrezept-doc">Kochrezept als Word-PDF</a> liegt ebenfalls im PDF-Betrachter.</p>
+
+            <h2>Rechenweg auf jedem Blatt</h2>
+            <div class="pos">
+              <div class="pos-nr">Pos.<br>1</div>
+              <div>
+                <h3>Geometrie und System</h3>
+                <p>Achsabstände, Dicke, Lagerung, Auskragungen. Kurz entscheiden: 1-achsig, 2-achsig oder punktgestützt? Scheibe oder wandartiger Träger?</p>
+              </div>
+            </div>
+            <div class="pos">
+              <div class="pos-nr">Pos.<br>2</div>
+              <div>
+                <h3>Materialkennwerte</h3>
+                <p>C-Klasse → <i>f</i><sub>cd</sub>, <i>f</i><sub>ctm</sub>. BSt 550S → <i>f</i><sub>yd</sub> = 478 N/mm². <i>c</i><sub>nom</sub> aus Exposition und Nutzungsdauer.</p>
+              </div>
+            </div>
+            <div class="pos">
+              <div class="pos-nr">Pos.<br>3</div>
+              <div>
+                <h3>Lastaufstellung</h3>
+                <p>Eigengewicht Platte 25·<i>h</i>, Aufbau aus Angabe, Nutzlast oder Schnee. Dann eine Zeile GZT: 1,35·<i>g</i> + 1,50·<i>q</i>.</p>
+              </div>
+            </div>
+            <div class="pos">
+              <div class="pos-nr">Pos.<br>4</div>
+              <div>
+                <h3>Schnittgrößen</h3>
+                <p>Erst hier Tabellen: Durchlaufträger, Czerny, DLT-Streifen, Fachwerk. Feldweise ungünstige Nutzlast, wenn verlangt.</p>
+              </div>
+            </div>
+            <div class="pos">
+              <div class="pos-nr">Pos.<br>5</div>
+              <div>
+                <h3>Bemessung, Nachweis, Wahl</h3>
+                <p>Überschlägig <i>A</i><sub>s</sub> ≈ <i>M</i> / (<i>f</i><sub>yd</sub>·0,8·<i>h</i>), dann μ-ω, Mindestbewehrung, Querkraft oder Durchstanzen, Skizze.</p>
+              </div>
+            </div>
+
+            <h2>Welche Bauteile in Altprüfungen kommen</h2>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Bauteil</th>
+                    <th>Rolle in der Prüfung</th>
+                    <th>Blatt</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>1-achsige Platte</td><td>Balken auf 1 m, oft mit Unterzug</td><td><a href="platte-1achsig.html">03</a></td></tr>
+                  <tr><td>2-achsige Platte</td><td>Czerny, Lastumordnung, Drill</td><td><a href="platte-2achsig.html">04</a></td></tr>
+                  <tr><td>Punktgestützt</td><td>meiste Punkte: Biegung + Durchstanzen</td><td><a href="durchstanzen.html">05</a></td></tr>
+                  <tr><td>Scheibe / WT</td><td>Fachwerk oder Modellstütze</td><td><a href="scheibe.html">06</a></td></tr>
+                  <tr><td>Konsole</td><td>Übung, kürzeres Rechenbeispiel</td><td><a href="konsole.html">07</a></td></tr>
+                  <tr><td>BSP, Treppe</td><td>Übung; in Altprüfungen selten Hauptthema</td><td><a href="bsp.html">08</a>, <a href="treppe.html">09</a></td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="note">
+              <strong>Einheiten.</strong> Momente in kNm/m und Nmm nicht mischen. <i>f</i><sub>cd</sub> in N/mm², <i>d</i> in mm: μ<sub>sd</sub> = <i>M</i> / (<i>b</i> <i>d</i>² <i>f</i><sub>cd</sub>). Eine Zeile Einheiten rettet die Aufgabe.
+            </div>
+
+            <p>Die Zahlen auf den folgenden Blättern folgen den Übungen und der Auffrischung (Material/Lasten). Czerny-k-Faktoren und μ-ω nimmst du in der Prüfung aus <em>deinen</em> Tafeln — hier stehen die Abläufe und die typischen Prüfungswerte.</p>
+          </div>
+          <aside class="rand">
+            <h2>Rotstift</h2>
+            <p>Keine Zahl ohne Herkunft. <i>f</i><sub>cd</sub> = <i>f</i><sub>ck</sub>/1,5 — nicht durch 1,2.</p>
+            <p>Auskragungen: bei Momenten oft vernachlässigen, bei Stützenkräften und Rundschnitt mitnehmen.</p>
+            <p>Nutzlast feldweise, Schnee auf dem Dach meist vollflächig.</p>
+          </aside>
+        </div>
+      </article>
+      <div id="pager-root"></div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

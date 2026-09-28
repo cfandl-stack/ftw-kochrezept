@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scheibe · Flächentragwerke</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="scheibe">
+  <a class="skip" href="#blatt">Zum Blatt</a>
+  <div class="shell">
+    <div id="nav-root"></div>
+    <div class="sheet-wrap">
+      <article class="sheet">
+        <header class="schriftfeld">
+          <div class="sf-code">LV <b>875.326</b></div>
+          <div class="sf-title">Scheibe und wandartiger Träger</div>
+          <div class="sf-meta">Blatt 06<br><b>Fachwerk oder Knicken</b></div>
+        </header>
+        <div class="blatt">
+          <div class="kolumne" id="blatt">
+            <p class="lead">Zuerst die Abgrenzung. Die Prüfung meint mit „Scheibe“ oft den wandartigen Träger unter den Stützen — dann Fachwerk. Die Übung 07 meint die Wandscheibe unter Druck — dann Modellstütze.</p>
+
+            <h2>Abgrenzung</h2>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th></th><th>Kriterium</th><th>Folge</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Scheibe vs. Stütze</td><td>h/b ≥ 4 → Scheibe, sonst Stütze</td><td>Querschnitt, nicht die Wandhöhe allein</td></tr>
+                  <tr><td>Scheibe vs. wandartiger Träger</td><td>Lagerung</td><td>kontinuierlich → Scheibe; wie Balken aufgelagert → WT</td></tr>
+                  <tr><td>Scheibe vs. Platte</td><td>Beanspruchung</td><td>überwiegend Biegung aus der Ebene → Platte</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2>Weg A — wandartiger Träger, Fachwerk</h2>
+            <p>So stehen Kindergarten und Wohnbau in der Angabe: Stützen als Einzellasten oben, Deckenlast als Strecke, Eigengewicht der Scheibe als Strecke (oft oben angesetzt).</p>
+            <div class="pos">
+              <div class="pos-nr">1</div>
+              <div>
+                <h3>Lastfälle getrennt skizzieren</h3>
+                <p>Drei Modelle, dann superponieren: (1) Einzellasten der Stützen, (2) Streckenlast Terrasse/Decke, (3) Eigengewicht. Druckstreben und Zugbänder unterschiedlich zeichnen.</p>
+              </div>
+            </div>
+            <div class="pos">
+              <div class="pos-nr">2</div>
+              <div>
+                <h3>Hauptzugbewehrung</h3>
+                <p>Zugkraft aus dem Fachwerk / f<sub>yd</sub>, plus konstruktive Anforderungen (Verankerung über die Knoten, Mindestbewehrung). Überlagerung der Lastfälle für die maßgebende Zugstrebe.</p>
+              </div>
+            </div>
+            <div class="pos">
+              <div class="pos-nr">3</div>
+              <div>
+                <h3>Druck am Auflager</h3>
+                <p>Oft nur vertikale Auflagerkräfte gegen die Druckspannung im Auflagerquerschnitt. Schräge Diagonalen nicht rechnen, wenn die Angabe das so begrenzt.</p>
+              </div>
+            </div>
+            <p>Einseitige Deckenlast auf die Scheibe: in der Prüfung häufig als Resultierende im Viertelspunkt, obwohl die Abtragung trapezförmig wäre.</p>
+
+            <h2>Weg B — Wandscheibe, Modellstütze</h2>
+            <p>Vorwiegend Druck in der Ebene, 1 m Wandstreifen, Ü-Skript ab S. 352.</p>
+            <p class="eq">l<sub>0</sub> = β · l<sub>w</sub></p>
+            <ul>
+              <li>zweiseitig gehalten: β = 1,0</li>
+              <li>zweiseitig eingespannt: β = 0,85</li>
+              <li>dreiseitig gehalten: β = 1 / {1 + [l<sub>w</sub>/(3b)]²}</li>
+              <li>vierseitig, b ≥ l<sub>w</sub>: β = 1 / [1 + (l<sub>w</sub>/b)²]</li>
+              <li>vierseitig, b &lt; l<sub>w</sub>: β = b / (2 l<sub>w</sub>)</li>
+            </ul>
+            <p>Öffnung zählt als ungestützter Rand, wenn l<sub>ö</sub> &gt; l<sub>w</sub>/3 oder ΣA<sub>Öffnung</sub> &gt; 10 % der Wandfläche. Dann die Scheibe in Stützen- und Balkenbereiche zerlegen (wie Ausstellungsgebäude mit Fenstern).</p>
+            <p class="eq">n = n<sub>Ed</sub> / (h<sub>w</sub> · f<sub>cd</sub>)<br>
+              n ≥ 0,41 → λ<sub>lim</sub> = 25<br>
+              n &lt; 0,41 → λ<sub>lim</sub> = 16 / √n</p>
+            <p>Weiter wie Stahlbetonstütze, bezogen auf 1 m.</p>
+
+            <h2>Konstruktion</h2>
+            <ul>
+              <li>Mindestdicke Ortbeton 12 cm, Fertigteil 10 cm.</li>
+              <li>Orthogonales Netz auf <em>beiden</em> Seiten. Lotrecht innen, horizontal außen.</li>
+              <li>Stababstand: lotrecht max. 30 cm bzw. 2 h<sub>w</sub>, horizontal max. 35 cm.</li>
+              <li>Lotrechte Mindestbewehrung: a<sub>s,vmin</sub> ≥ 0,15 |n<sub>Ed</sub>| / f<sub>yd</sub> und ≥ 0,0015 a<sub>c</sub>, bei hohem Druck ≥ 0,003 a<sub>c</sub>. Je Hälfte je Seite, mind. 1,5 cm²/m je Seite.</li>
+              <li>Horizontal: ≥ 0,2 a<sub>s,v</sub>, bei hohem Druck ≥ 0,5 a<sub>s,v</sub>.</li>
+              <li>Maximal: 0,02 a<sub>c</sub> ohne Verbügelung, 0,04 a<sub>c</sub> mit Stützenbügeln. Stirnflächen wie freie Plattenränder einfassen. Keine S-Haken als Abstandhalter.</li>
+            </ul>
+
+            <details class="beispiel">
+              <summary>Beispiel — Lasten für das Fachwerk (Kindergarten-Logik)</summary>
+              <div class="beispiel-body">
+                <p>Scheibe 30 cm, Höhe 8,0 m. Eigengewicht als Strecke an der Oberkante:</p>
+                <p class="rechnung">g<sub>k</sub> = 25 · 0,30 · 8,0 = 60 kN/m &nbsp; g<sub>sd</sub> = 1,35 · 60 = 81 kN/m</p>
+                <p>Dazu: Einzellasten aus den Dachstützen (V<sub>sd</sub> der punktgestützten Platte, nicht verschmieren) und die Auflagerlinie der Terrasse (gleichförmig oder als Resultierende im Viertelspunkt, je nach Angabe).</p>
+                <p>Drei Skizzen: nur Stützen, nur Terrasse, nur Eigengewicht. Zugband unten bzw. über Öffnungen bemessen, Kräfte addieren.</p>
+              </div>
+            </details>
+          </div>
+          <aside class="rand">
+            <h2>Rotstift</h2>
+            <p>Erst Lagerung, dann Modell. Nicht beides mischen.</p>
+            <p>Stützenlasten nicht über die Scheibenlänge schmieren.</p>
+            <p>Eigengewicht der Scheibe selbst rechnen.</p>
+            <p>Öffnungen &gt; 1/3 der Höhe: Halt fällt weg.</p>
+            <p>Druck und Zug in der Skizze trennen.</p>
+          </aside>
+        </div>
+      </article>
+      <div id="pager-root"></div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

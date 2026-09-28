@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prüfungen · Flächentragwerke</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="exams">
+  <a class="skip" href="#blatt">Zum Blatt</a>
+  <div class="shell">
+    <div id="nav-root"></div>
+    <div class="sheet-wrap">
+      <article class="sheet">
+        <header class="schriftfeld">
+          <div class="sf-code">LV <b>875.326</b></div>
+          <div class="sf-title">Altprüfungen</div>
+          <div class="sf-meta">Kategorie<br><b>PDF + Durchrechnung</b></div>
+        </header>
+        <div class="blatt">
+          <div class="kolumne" id="blatt">
+            <p class="lead">Die Original-PDFs liegen in deinem Ordner und sind hier eingebettet. „Komplett“ heißt Angabe plus Ausarbeitung. Die beiden verlinkten Blätter haben zusätzlich den Rechenweg im Kochrezept-Stil.</p>
+
+            <div class="exam-cards">
+              <a href="pruefung-kindergarten.html">
+                <span class="yr">2015</span>
+                <div>
+                  <h3>Kindergarten</h3>
+                  <p>Punktgestütztes Dach, 2-achsige Terrasse, Scheibe. PDF plus Schrittfolge.</p>
+                </div>
+                <small>P1</small>
+              </a>
+              <a href="pruefung-lagerhalle.html">
+                <span class="yr">2013</span>
+                <div>
+                  <h3>Lagerhalle</h3>
+                  <p>Dach mit Schnee Klagenfurt, 2-Feld-EG, wandartiger Träger, Bewehrungspläne.</p>
+                </div>
+                <small>P2</small>
+              </a>
+            </div>
+
+            <h2>PDF-Betrachter</h2>
+            <p>Klick auf eine Prüfung lädt das PDF in den Rahmen darunter. Wenn der Rahmen leer bleibt: den Link „im Tab öffnen“ nutzen — manche Browser blockieren Einbettung.</p>
+            <div class="pdf-tools" id="pdf-switcher" data-start="kiga"></div>
+            <p class="pdf-tools"><a id="pdf-open" href="#" target="_blank" rel="noopener">dieses PDF im Tab öffnen</a></p>
+            <div class="pdf-frame">
+              <iframe id="pdf-frame" title="Prüfungs-PDF"></iframe>
+            </div>
+            <div class="note">
+              <strong>Einbetten geht.</strong> Auf GitHub Pages laufen die PDFs direkt vom Server der Seite. Lokal per Doppelklick auf die HTML-Datei bleibt der Viewer oft leer — dann <code>python serve.py</code> in diesem Ordner starten (Port 8765).
+            </div>
+          </div>
+          <aside class="rand">
+            <h2>Rotstift</h2>
+            <p>Komplett-PDFs enthalten die Lösung. Erst Angabe lesen, dann scrollen.</p>
+            <p>Zahlen aus der Ausarbeitung nicht in eine neue Prüfung übernehmen — nur den Ablauf.</p>
+          </aside>
+        </div>
+      </article>
+      <div id="pager-root"></div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

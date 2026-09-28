@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Platte 2-achsig · Flächentragwerke</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="p2">
+  <a class="skip" href="#blatt">Zum Blatt</a>
+  <div class="shell">
+    <div id="nav-root"></div>
+    <div class="sheet-wrap">
+      <article class="sheet">
+        <header class="schriftfeld">
+          <div class="sf-code">LV <b>875.326</b></div>
+          <div class="sf-title">2-achsig gespannte Platte</div>
+          <div class="sf-meta">Blatt 04<br><b>Czerny · Drill</b></div>
+        </header>
+        <div class="blatt">
+          <div class="kolumne" id="blatt">
+            <p class="lead">Zwei Richtungen tragen, sobald das Seitenverhältnis und die Lagerung das hergeben. Schnittgrößen kommen aus den Czerny-Tafeln — die Kunst ist die Lastumordnung, nicht das Ablesen der Zahl.</p>
+
+            <h2>Was die Czerny-Tafel voraussetzt</h2>
+            <figure class="viz">
+              <img src="img/czerny-uebung-11.png" alt="Folie: Momente m = qd lx² / Tafelwert, Querkräfte qd lx / Tafelwert, immer bezogen auf lx">
+              <figcaption>Übung 02, Folie 11. ly ist immer die längere Seite. Auch my wird mit lx gerechnet, nicht mit ly.</figcaption>
+            </figure>
+            <p class="eq">m = q<sub>d</sub> · l<sub>x</sub>² / k<sub>Tafel</sub><br>
+              v = q<sub>d</sub> · l<sub>x</sub> / k<sub>Tafel</sub><br>
+              l<sub>y</sub> ≥ l<sub>x</sub>, Ecken gegen Abheben gesichert, Drillsteif</p>
+
+            <h2>Lagerungsfälle V1–V6</h2>
+            <p>In der Tafel ist der eingespannte Rand schraffiert, der gelenkige Rand eine Linie. Du suchst den Kasten, der zu deiner Platte passt, dann die Zeile l<sub>y</sub>/l<sub>x</sub>.</p>
+            <div class="lager-grid">
+              <div class="lager">
+                <strong>V1 · alle gelenkig</strong>
+                <svg viewBox="0 0 80 56" aria-hidden="true"><rect x="8" y="8" width="64" height="40" fill="#f7f8f3" stroke="#1e2a24" stroke-width="2"/></svg>
+                <span>Feldmoment, antimetrischer Anteil</span>
+              </div>
+              <div class="lager">
+                <strong>V2 · ein Rand fest</strong>
+                <svg viewBox="0 0 80 56" aria-hidden="true"><rect x="8" y="8" width="64" height="40" fill="#f7f8f3" stroke="#1e2a24" stroke-width="2"/><rect x="68" y="8" width="6" height="40" fill="#1e2a24"/></svg>
+                <span>Nachbarfeld schließt an · Stütze</span>
+              </div>
+              <div class="lager">
+                <strong>V3 · zwei gegenüber</strong>
+                <svg viewBox="0 0 80 56" aria-hidden="true"><rect x="8" y="8" width="64" height="40" fill="#f7f8f3" stroke="#1e2a24" stroke-width="2"/><rect x="8" y="8" width="6" height="40" fill="#1e2a24"/><rect x="66" y="8" width="6" height="40" fill="#1e2a24"/></svg>
+                <span>Streifen zwischen zwei Wänden</span>
+              </div>
+              <div class="lager">
+                <strong>V4 · zwei benachbart</strong>
+                <svg viewBox="0 0 80 56" aria-hidden="true"><rect x="8" y="8" width="64" height="40" fill="#f7f8f3" stroke="#1e2a24" stroke-width="2"/><rect x="8" y="8" width="64" height="6" fill="#1e2a24"/><rect x="66" y="8" width="6" height="40" fill="#1e2a24"/></svg>
+                <span>Eckfeld</span>
+              </div>
+              <div class="lager">
+                <strong>V5 · drei Ränder fest</strong>
+                <svg viewBox="0 0 80 56" aria-hidden="true"><rect x="8" y="8" width="64" height="40" fill="#f7f8f3" stroke="#1e2a24" stroke-width="2"/><rect x="8" y="8" width="6" height="40" fill="#1e2a24"/><rect x="8" y="8" width="64" height="6" fill="#1e2a24"/><rect x="66" y="8" width="6" height="40" fill="#1e2a24"/></svg>
+                <span>nur ein gelenkiger Rand</span>
+              </div>
+              <div class="lager">
+                <strong>V6 · alle fest</strong>
+                <svg viewBox="0 0 80 56" aria-hidden="true"><rect x="8" y="8" width="64" height="40" fill="#f7f8f3" stroke="#1e2a24" stroke-width="2"/><rect x="8" y="8" width="64" height="6" fill="#1e2a24"/><rect x="8" y="42" width="64" height="6" fill="#1e2a24"/><rect x="8" y="8" width="6" height="40" fill="#1e2a24"/><rect x="66" y="8" width="6" height="40" fill="#1e2a24"/></svg>
+                <span>Innenfeld, allseits Nachbarn</span>
+              </div>
+            </div>
+            <figure class="viz">
+              <img src="img/czerny-uebung-12.png" alt="Übersicht Czerny-Tafeln Gleichlast Lagerungsfälle V1 bis V6">
+              <figcaption>Übung 02, Folie 12. In der Prüfung liegt die Zahlentafel in deinen Unterlagen — hier die Landkarte, welcher Kasten gemeint ist.</figcaption>
+            </figure>
+
+            <h2>System</h2>
+            <ul>
+              <li>Typisch: ly / lx ≤ 2, Lagerung an mindestens drei Rändern.</li>
+              <li>lx = kürzere Spannweite (Haupttragrichtung, äußere Bewehrungslage).</li>
+              <li>Rand: gelenkig und gegen Abheben gesichert, oder eingespannt (Wand, Nachbarfeld).</li>
+              <li>Mittelauflager einer zweifeldigen Platte oft wie Durchlaufträger-Stütze.</li>
+            </ul>
+
+            <h2>Lastumordnung nach Czerny</h2>
+            <p>Die Nutzlast wird in einen symmetrischen und einen antimetrischen Anteil zerlegt. Eigengewicht steht immer auf beiden Feldern.</p>
+            <p class="eq">q′ = g<sub>d</sub> + q<sub>d</sub>/2 &nbsp; (symmetrisch)<br>
+              q″ = ± q<sub>d</sub>/2 &nbsp; (antimetrisch)</p>
+            <figure class="viz">
+              <img src="img/czerny-uebung-08.png" alt="Lastumordnung: Nutzlast auf einem Feld gleich symmetrisch q/2 auf beiden plus antimetrisch plus/minus q/2">
+              <figcaption>Maximales Feldmoment: Verkehr nur auf dem betrachteten Feld. Das ist q auf einem Feld = q/2 überall plus ±q/2 (antimetrisch).</figcaption>
+            </figure>
+            <figure class="viz">
+              <img src="img/czerny-uebung-10.png" alt="Symmetrischer Anteil entspricht einseitig eingespannter Platte, antimetrischer Anteil allseitig gelenkig">
+              <figcaption>Der symmetrische Anteil sieht eine Einspannung am Nachbarfeld (V2). Der antimetrische Anteil sieht vier gelenkige Ränder (V1). Zwei Tafelzeilen, dann addieren.</figcaption>
+            </figure>
+
+            <h3>Maximales Feldmoment</h3>
+            <p>Nachbarfeld möglichst <em>nicht</em> mit Nutzlast. Lagerungsfälle:</p>
+            <ul>
+              <li>q′: Einspannung, wo ein Nachbarfeld anschließt.</li>
+              <li>q″: alle Ränder frei drehbar.</li>
+            </ul>
+
+            <h3>Maximales (betragsgrößtes) Stützmoment</h3>
+            <p>Beide Felder belastet (Eigengewicht + Nutzlast).</p>
+            <ul>
+              <li>q′: Einspannung am Nachbarfeld.</li>
+              <li>q″: Einspannung nur an der Stelle, an der das Stützmoment gesucht ist.</li>
+            </ul>
+            <p class="eq"><span class="eq-label">Tafelwert k zur Lagerung und zu l<sub>y</sub>/l<sub>x</sub></span>
+              <i>m</i> = q · l<sub>x</sub>² / k</p>
+            <p>k kommt aus <em>deiner</em> Czerny-Tafel. Zwischen l<sub>y</sub>/l<sub>x</sub> linear interpolieren. Stützmoment an der Wandbreite ausrunden, wenn die Angabe das verlangt.</p>
+
+            <p>Zwei Bilder aus der Übung, damit du siehst, <em>wo</em> auf der Tafelplatte welcher k-Wert sitzt. Die Zahlen gelten für das Tafelbild (nicht jedes l<sub>y</sub>/l<sub>x</sub>) — in der Prüfung die Zeile zu deinem Verhältnis nehmen.</p>
+            <div class="viz-row">
+              <figure class="viz">
+                <img src="img/czerny-uebung-13.png" alt="Czerny-Tafelbild einseitig eingespannt: Stützmoment mx,erm = p lx²/9, Feld mxm = p lx²/19,8">
+                <figcaption>V2, Stütz- und Feldmomente. Stütze links ≈ p·lx²/9.</figcaption>
+              </figure>
+              <figure class="viz">
+                <img src="img/czerny-uebung-14.png" alt="Czerny-Tafelbild allseitig gelenkig: Feldmoment mxm = p lx²/13,7">
+                <figcaption>V1, Feldmomente. Quadratisches Bild: mxm ≈ p·lx²/13,7.</figcaption>
+              </figure>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Bild (Übung)</th>
+                    <th>Ort</th>
+                    <th>k in m = p lx² / k</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>V2 einseitig fest</td><td>Stützmoment m<sub>x,erm</sub></td><td class="num">9</td></tr>
+                  <tr><td>V2 einseitig fest</td><td>Feld m<sub>xm</sub></td><td class="num">19,8</td></tr>
+                  <tr><td>V2 einseitig fest</td><td>Feld m<sub>y,max</sub></td><td class="num">55,6</td></tr>
+                  <tr><td>V1 alle gelenkig</td><td>Feld m<sub>xm</sub></td><td class="num">13,7</td></tr>
+                  <tr><td>V1 alle gelenkig</td><td>Feld m<sub>ym</sub></td><td class="num">35,7</td></tr>
+                  <tr><td>V1 alle gelenkig</td><td>Drill m<sub>xye</sub></td><td class="num">16,3</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="note">Das ist ein Auszug zum Lesen lernen. Deine Prüfungstafel hat mehr l<sub>y</sub>/l<sub>x</sub>-Spalten. k nicht auswendig als „immer 13,7“ verwenden.</div>
+            <div class="note">
+              <strong>Überlagerung Schnee + Nutzlast</strong> auf einer Dachterrasse oft unzulässig — Angabe lesen. Nutzlast feldweise ungünstig, Schnee auf dem Dach meist konstant.
+            </div>
+
+            <h2>Bemessung je Richtung</h2>
+            <p>Wie bei der 1-achsigen Platte, aber <i>d</i><sub>x</sub> und <i>d</i><sub>y</sub> unterscheiden sich um einen Stabdurchmesser. Maßgebend ist die Richtung mit dem kleineren <i>d</i>, wenn die Bewehrung gleich gewählt wird. 20 %-Regel gilt in beiden Richtungen: die schwächere Richtung bekommt mindestens 20 % der stärkeren.</p>
+            <p>Querkraft nur an der Stelle der größten Querkraft. Ist dort keine Schubbewehrung nötig, ist der Nachweis für die Platte erledigt.</p>
+
+            <h2>Drillbewehrung und Ränder</h2>
+            <ul>
+              <li>Drillmomente drehen zu den Plattenrändern. Bei frei drehbaren Ecken mit gesichertem Abheben: Drillbewehrung oben <em>und</em> unten, je etwa 0,75·<i>m</i><sub>xy</sub> (bzw. 50/50 der Drillbewehrung), Verankerung um die Ecke.</li>
+              <li>Mindestens so viel wie 1/16 der unteren Netzbewehrung, wenn das Skript das so führt.</li>
+              <li>Freie Ränder (Balkon): Schlaufen, Abstand 15 + h/10 cm, oft 2 Längseisen Ø12.</li>
+              <li>Teilweise Einspannung, die in der Rechnung nicht steckt: obere Bewehrung ≥ 25 % des Maximalmoments des Nachbarfeldes, Länge ≥ 0,2·Feldweite, über Zwischenauflager durchlaufen.</li>
+              <li>Endauflager: Moment darf auf 15–25 % des Maximalmoments des angrenzenden Feldes nicht unterschritten werden (konstruktiv).</li>
+            </ul>
+
+            <h2>Öffnungen</h2>
+            <ul>
+              <li>Klein (&lt; 25/35 cm): keine Zulagen.</li>
+              <li>Öffnung &lt; 0,2·l<sub>x</sub>: die auf die Öffnung entfallende Bewehrung danebenlegen, plus konstruktive Zulagen. Runde Öffnungen: Querzulagen.</li>
+            </ul>
+
+            <details class="beispiel">
+              <summary>Beispiel — zweifeldige Terrasse 6,0 × 12,0 m</summary>
+              <div class="beispiel-body">
+                <p>Wie Kindergarten-Prüfung: zwei Felder 6 × 6 m, h = 20 cm, C35/45, g<sub>2</sub> = 2,5 kN/m², q<sub>k</sub> = 5,0 kN/m². Außenränder gelenkig, Mitte auf Scheibe. Schnee vernachlässigt, Nutzlast feldweise.</p>
+                <p class="rechnung">g<sub>1</sub> = 25 · 0,20 = 5,00 kN/m² &nbsp; g<sub>ges</sub> = 7,50 kN/m²</p>
+                <p class="rechnung">q<sub>sd</sub> = 1,35 · 7,50 + 1,50 · 5,00 = 10,13 + 7,50 = 17,63 kN/m²</p>
+                <p class="rechnung">g<sub>d</sub> = 1,35 · 7,50 = 10,13 kN/m² &nbsp; q<sub>d</sub> = 7,50 kN/m²</p>
+                <p class="rechnung">q′ = 10,13 + 3,75 = 13,88 kN/m² &nbsp; q″ = ± 3,75 kN/m²</p>
+                <p>Pro gesuchtem Moment: Tafelzeile zur Lagerung wählen, k zu l<sub>y</sub>/l<sub>x</sub> = 1,0 ablesen, m = q·l²/k, Anteile q′ und q″ addieren.</p>
+                <p>Dann je Richtung: <i>d</i> → μ → ω → a<sub>s</sub>, Mindestbewehrung, Querkraft am Mittelauflager (größte V). Last auf die Scheibe: vereinfacht gleichförmig entlang der Lagerlinie (sicher), obwohl die 2-achsige Abtragung trapezförmig wäre.</p>
+                <p class="note">Ohne Czerny-Tafel keine Zahlen für m — in der Prüfung die Tafel aufschlagen, Lagerungsfall skizzieren, k hinschreiben.</p>
+              </div>
+            </details>
+          </div>
+          <aside class="rand">
+            <h2>Rotstift</h2>
+            <p>Maximales Feldmoment: Nachbarfeld ohne Nutzlast.</p>
+            <p>Maximales Stützmoment: beide Felder voll.</p>
+            <p>k zur richtigen Lagerung. Gelenkig und eingespannt vertauschen ist der Klassiker.</p>
+            <p>Abheben gesichert? Sonst andere Drill-/Eckbewehrung.</p>
+            <p>d<sub>y</sub> ist kleiner als d<sub>x</sub> — μ in y wird größer.</p>
+          </aside>
+        </div>
+      </article>
+      <div id="pager-root"></div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

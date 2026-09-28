@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lastaufstellung · Flächentragwerke</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="lasten">
+  <a class="skip" href="#blatt">Zum Blatt</a>
+  <div class="shell">
+    <div id="nav-root"></div>
+    <div class="sheet-wrap">
+      <article class="sheet">
+        <header class="schriftfeld">
+          <div class="sf-code">LV <b>875.326</b></div>
+          <div class="sf-title">Lastaufstellung</div>
+          <div class="sf-meta">Blatt 02<br><b>GZT · kN/m²</b></div>
+        </header>
+        <div class="blatt">
+          <div class="kolumne" id="blatt">
+            <p class="lead">Ständige Lasten wirken immer. Veränderliche Lasten können weg sein — deshalb feldweise ungünstig, außer die Angabe sagt „Schnee vollflächig“. Die Bilder zeigen, wie aus dem Schnitt die Flächenlast und daraus Stütze und Scheibe werden.</p>
+
+            <figure class="viz">
+              <svg viewBox="0 0 720 280" role="img" aria-label="Schnitt durch eine Decke: Beton, Aufbau, Nutzlast, Kombination zur Bemessungslast">
+                <text x="20" y="22" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="13" fill="#3d4d44">1 m Streifen · Schnitt</text>
+                <rect x="40" y="48" width="280" height="28" fill="#d7e6ef" stroke="#1d4e74"/>
+                <text x="180" y="67" text-anchor="middle" font-size="13" fill="#1d4e74">qₖ Nutzlast oder sₖ Schnee</text>
+                <rect x="40" y="76" width="280" height="32" fill="#d9cbb3" stroke="#6b5a3e"/>
+                <text x="180" y="97" text-anchor="middle" font-size="13" fill="#4a3d28">g₂ Aufbau (Angabe)</text>
+                <rect x="40" y="108" width="280" height="52" fill="#9aa194" stroke="#1e2a24"/>
+                <text x="180" y="132" text-anchor="middle" font-size="14" fill="#1e2a24">g₁ = 25 · h</text>
+                <text x="180" y="148" text-anchor="middle" font-size="11" fill="#1e2a24">Stahlbetonplatte</text>
+                <line x1="40" y1="172" x2="320" y2="172" stroke="#1e2a24" stroke-width="3"/>
+                <text x="40" y="198" font-size="12" fill="#3d4d44">g_ges,k = g₁ + g₂  (immer da)</text>
+                <text x="40" y="218" font-size="12" fill="#1d4e74">qₖ bzw. sₖ = 0,8 · s₀  (kann fehlen)</text>
+                <path d="M340 118 L390 118" stroke="#1e2a24" stroke-width="2" marker-end="url(#arr)"/>
+                <defs>
+                  <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#1e2a24"/></marker>
+                </defs>
+                <rect x="410" y="40" width="280" height="200" fill="#eef1e8" stroke="#1e2a24"/>
+                <text x="550" y="68" text-anchor="middle" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="13" fill="#1e2a24">GZT, eine veränderliche Last</text>
+                <text x="550" y="108" text-anchor="middle" font-size="18" fill="#154f49">q<tspan font-size="12" dy="4">sd</tspan><tspan dy="-4"> = 1,35 · g</tspan><tspan font-size="12" dy="4">ges,k</tspan></text>
+                <text x="550" y="138" text-anchor="middle" font-size="18" fill="#154f49">+ 1,50 · q<tspan font-size="12" dy="4">k</tspan></text>
+                <text x="550" y="178" text-anchor="middle" font-size="12" fill="#3d4d44">1,35 nur auf ständige Lasten</text>
+                <text x="550" y="198" text-anchor="middle" font-size="12" fill="#3d4d44">1,50 nur auf Nutzlast oder Schnee</text>
+                <text x="550" y="218" text-anchor="middle" font-size="12" fill="#a61f18">nicht 1,35+1,50 auf die Summe</text>
+              </svg>
+              <figcaption>Aus dem Querschnitt wird eine Flächenlast in kN/m². Erst danach Momente. Innendecke: Nutzlast, kein Schnee. Dach: oft nur Schnee.</figcaption>
+            </figure>
+
+            <h2>Charakteristische Lasten</h2>
+            <div class="pos">
+              <div class="pos-nr">g<sub>1</sub></div>
+              <div>
+                <h3>Eigengewicht Massivdecke</h3>
+                <p class="eq">g<sub>1</sub> = γ<sub>Beton</sub> · <i>h</i> = 25 kN/m³ · <i>h</i> [m]</p>
+                <p><i>h</i> in Meter: 20 cm → 5,0 kN/m², 25 cm → 6,25 kN/m², 30 cm → 7,5 kN/m².</p>
+              </div>
+            </div>
+            <div class="pos">
+              <div class="pos-nr">g<sub>2</sub></div>
+              <div>
+                <h3>Aufbau</h3>
+                <p>Estrich, Dämmung, Belag, Dachaufbau: charakteristischer Wert aus der Angabe, schon in kN/m².</p>
+              </div>
+            </div>
+            <div class="pos">
+              <div class="pos-nr">q<sub>k</sub></div>
+              <div>
+                <h3>Nutzlast oder Schnee</h3>
+                <p>Nutzlast aus Angabe (Büro oft 3,0; Lager 5,0). Schnee auf Flachdach:</p>
+                <p class="eq">s<sub>k</sub> = μ<sub>1</sub> · s<sub>0</sub> &nbsp; mit &nbsp; μ<sub>1</sub> = 0,8<br>s<sub>0</sub> aus Schneelastkarte zur Ortsangabe</p>
+              </div>
+            </div>
+
+            <h2>Bemessungslast GZT</h2>
+            <p>Eine veränderliche Last — der Normalfall in FTW:</p>
+            <p class="eq"><span class="eq-label">Grundkombination, ÖNORM EN 1990</span>q<sub>sd</sub> = 1,35 · g<sub>ges,k</sub> + 1,50 · q<sub>k</sub><br>g<sub>ges,k</sub> = g<sub>1</sub> + g<sub>2</sub></p>
+            <p>Zwei veränderliche Lasten gleichzeitig: die maßgebende mit 1,50, die andere mit 1,50·ψ<sub>0</sub> (bzw. nach Skript 1,35 auf die weitere). Wind und Temperatur stehen in den Angaben meist ausdrücklich auf „nicht ansetzen“.</p>
+
+            <div class="kasten">
+              <h3>Fünf Zeilen in der Prüfung</h3>
+              <ol>
+                <li>g<sub>1</sub> = 25 · <i>h</i></li>
+                <li>g<sub>2</sub> aus Angabe</li>
+                <li>q<sub>k</sub> oder s<sub>k</sub> = 0,8 · s<sub>0</sub></li>
+                <li>g<sub>ges,k</sub> = g<sub>1</sub> + g<sub>2</sub></li>
+                <li>q<sub>sd</sub> = 1,35 · g<sub>ges,k</sub> + 1,50 · q<sub>k</sub></li>
+              </ol>
+            </div>
+
+            <h2>Von der Fläche zur Stütze und zur Scheibe</h2>
+            <p>Die Platte trägt q<sub>sd</sub> als Fläche. An der Stütze wird daraus eine Einzellast über die Lasteinflussfläche (Näherung der Übung). An der Wandscheibe wird daraus eine Streckenlast.</p>
+
+            <figure class="viz">
+              <svg viewBox="0 0 740 430" role="img" aria-label="Grundriss punktgestützte Platte mit Einflussflächen Innen-, Rand- und Eckstütze">
+                <text x="20" y="22" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="13" fill="#3d4d44">Punktgestützte Platte · Einflussflächen für V_sd</text>
+                <rect x="40" y="40" width="420" height="360" fill="#f3f5ee" stroke="#1e2a24" stroke-width="1.5"/>
+                <!-- overhang hint -->
+                <rect x="52" y="52" width="396" height="336" fill="none" stroke="#7d9788" stroke-dasharray="4 3"/>
+                <!-- bays 3x3 of 6m conceptually, 3 columns x 3 rows of columns = 2 bays -->
+                <!-- influence S1 interior -->
+                <rect x="130" y="118" width="168" height="168" fill="rgba(31,107,98,0.28)" stroke="#1f6b62" stroke-width="1.5"/>
+                <text x="214" y="198" text-anchor="middle" font-size="12" fill="#154f49">S1 innen</text>
+                <text x="214" y="216" text-anchor="middle" font-size="11" fill="#154f49">1,1 l × 1,1 l</text>
+                <!-- S2 edge right -->
+                <rect x="360" y="118" width="92" height="168" fill="rgba(29,78,116,0.22)" stroke="#1d4e74"/>
+                <text x="406" y="198" text-anchor="middle" font-size="11" fill="#1d4e74">S2</text>
+                <text x="406" y="214" text-anchor="middle" font-size="10" fill="#1d4e74">Rand</text>
+                <!-- S3 corner -->
+                <rect x="360" y="52" width="92" height="66" fill="rgba(166,31,24,0.22)" stroke="#a61f18"/>
+                <text x="406" y="88" text-anchor="middle" font-size="11" fill="#a61f18">S3 Ecke</text>
+                <!-- columns -->
+                <g fill="#1e2a24">
+                  <rect x="122" y="110" width="16" height="16"/>
+                  <rect x="206" y="110" width="16" height="16"/>
+                  <rect x="290" y="110" width="16" height="16"/>
+                  <rect x="122" y="194" width="16" height="16"/>
+                  <rect x="206" y="194" width="16" height="16"/>
+                  <rect x="290" y="194" width="16" height="16"/>
+                  <rect x="122" y="278" width="16" height="16"/>
+                  <rect x="206" y="278" width="16" height="16"/>
+                  <rect x="290" y="278" width="16" height="16"/>
+                  <rect x="398" y="110" width="16" height="16"/>
+                  <rect x="398" y="194" width="16" height="16"/>
+                  <rect x="398" y="52" width="16" height="16"/>
+                </g>
+                <text x="214" y="108" text-anchor="middle" font-size="11" fill="#3d4d44">l_x = l_y typ. 6 m</text>
+                <text x="70" y="390" font-size="11" fill="#3d4d44">gestrichelt: Überstand — bei Momenten oft weg, bei V_sd und Rundschnitt dazu</text>
+                <!-- legend formulas -->
+                <text x="490" y="70" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="13" fill="#1e2a24">V_sd = Fläche · q_sd</text>
+                <rect x="490" y="90" width="18" height="18" fill="rgba(31,107,98,0.28)" stroke="#1f6b62"/>
+                <text x="516" y="104" font-size="12" fill="#154f49">Innen  1,1 l · 1,1 l · q</text>
+                <rect x="490" y="122" width="18" height="18" fill="rgba(29,78,116,0.22)" stroke="#1d4e74"/>
+                <text x="516" y="136" font-size="12" fill="#1d4e74">Rand   1,1 l · 0,4 l · q</text>
+                <rect x="490" y="154" width="18" height="18" fill="rgba(166,31,24,0.22)" stroke="#a61f18"/>
+                <text x="516" y="168" font-size="12" fill="#a61f18">Ecke   0,4 l · 0,4 l · q</text>
+                <text x="490" y="210" font-size="12" fill="#3d4d44">Beispiel l = 6 m, q_sd = 18:</text>
+                <text x="490" y="232" font-size="13" fill="#1e2a24">S1 = 783 kN</text>
+                <text x="490" y="252" font-size="13" fill="#1e2a24">S2 = 285 kN</text>
+                <text x="490" y="272" font-size="13" fill="#1e2a24">S3 = 104 kN</text>
+                <text x="490" y="310" font-size="12" fill="#a61f18">Diese V_sd gehen als</text>
+                <text x="490" y="328" font-size="12" fill="#a61f18">Einzellasten auf die Scheibe.</text>
+                <text x="490" y="346" font-size="12" fill="#a61f18">Nicht über die Wandlänge</text>
+                <text x="490" y="364" font-size="12" fill="#a61f18">verschmieren (außer Angabe).</text>
+              </svg>
+              <figcaption>Innenstütze holt Last aus vier Nachbarfeldern (deshalb 1,1·1,1). Rand und Ecke haben offene Seiten — kleinere Fläche, dafür später größeres β beim Durchstanzen.</figcaption>
+            </figure>
+
+            <p class="eq">Innenstütze: &nbsp; V<sub>sd</sub> = 1,1 <i>l</i><sub>x</sub> · 1,1 <i>l</i><sub>y</sub> · q<sub>sd</sub><br>
+              Randstütze: &nbsp; V<sub>sd</sub> = 1,1 <i>l</i><sub>x</sub> · 0,4 <i>l</i><sub>y</sub> · q<sub>sd</sub><br>
+              Eckstütze: &nbsp; V<sub>sd</sub> = 0,4 <i>l</i><sub>x</sub> · 0,4 <i>l</i><sub>y</sub> · q<sub>sd</sub></p>
+
+            <figure class="viz">
+              <svg viewBox="0 0 740 300" role="img" aria-label="Wandscheibe mit Stützenlasten oben, Deckenlast und Eigengewicht">
+                <text x="20" y="22" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="13" fill="#3d4d44">Scheibe / wandartiger Träger · wohin die Lasten gehen</text>
+                <rect x="80" y="70" width="360" height="180" fill="#cfd6c8" stroke="#1e2a24" stroke-width="2"/>
+                <text x="260" y="168" text-anchor="middle" font-size="14" fill="#1e2a24">Scheibe  d_S · h_S</text>
+                <!-- point loads -->
+                <line x1="140" y1="40" x2="140" y2="70" stroke="#a61f18" stroke-width="3"/>
+                <polygon points="140,70 134,58 146,58" fill="#a61f18"/>
+                <text x="140" y="34" text-anchor="middle" font-size="11" fill="#a61f18">V_S2</text>
+                <line x1="260" y1="40" x2="260" y2="70" stroke="#a61f18" stroke-width="3"/>
+                <polygon points="260,70 254,58 266,58" fill="#a61f18"/>
+                <text x="260" y="34" text-anchor="middle" font-size="11" fill="#a61f18">V_S1</text>
+                <line x1="380" y1="40" x2="380" y2="70" stroke="#a61f18" stroke-width="3"/>
+                <polygon points="380,70 374,58 386,58" fill="#a61f18"/>
+                <text x="380" y="34" text-anchor="middle" font-size="11" fill="#a61f18">V_S3</text>
+                <!-- distributed from slab -->
+                <g stroke="#1d4e74" stroke-width="1.2">
+                  <line x1="90" y1="250" x2="90" y2="268"/><line x1="120" y1="250" x2="120" y2="268"/>
+                  <line x1="150" y1="250" x2="150" y2="268"/><line x1="180" y1="250" x2="180" y2="268"/>
+                  <line x1="210" y1="250" x2="210" y2="268"/><line x1="240" y1="250" x2="240" y2="268"/>
+                  <line x1="270" y1="250" x2="270" y2="268"/><line x1="300" y1="250" x2="300" y2="268"/>
+                  <line x1="330" y1="250" x2="330" y2="268"/><line x1="360" y1="250" x2="360" y2="268"/>
+                  <line x1="390" y1="250" x2="390" y2="268"/>
+                </g>
+                <text x="260" y="288" text-anchor="middle" font-size="12" fill="#1d4e74">Decke → Streckenlast am Auflager (oft oben oder unten, Angabe lesen)</text>
+                <text x="480" y="90" font-size="13" fill="#1e2a24">Eigengewicht der Scheibe</text>
+                <text x="480" y="112" font-size="16" fill="#154f49">g = 25 · d_S · h_S</text>
+                <text x="480" y="134" font-size="13" fill="#3d4d44">in kN/m entlang der Länge</text>
+                <text x="480" y="168" font-size="13" fill="#1e2a24">g_sd = 1,35 · g</text>
+                <text x="480" y="200" font-size="12" fill="#a61f18">In der Prüfung oft an der</text>
+                <text x="480" y="216" font-size="12" fill="#a61f18">Oberkante angesetzt, dann</text>
+                <text x="480" y="232" font-size="12" fill="#a61f18">mit den Stützenlasten im</text>
+                <text x="480" y="248" font-size="12" fill="#a61f18">Fachwerk superponieren.</text>
+              </svg>
+              <figcaption>Drei Lastbilder, drei Fachwerkskizzen: Einzellasten der Stützen, Strecke aus der Decke, Eigengewicht der Wand. Erst addieren, dann Zugband bemessen.</figcaption>
+            </figure>
+
+            <p>Überstände zur Momentenermittlung oft weglassen, bei V<sub>sd</sub> und Rundschnitt dazurechnen. Scheibe: Eigengewicht als Streckenlast γ · d<sub>S</sub> · h<sub>S</sub> [kN/m].</p>
+
+            <details class="beispiel">
+              <summary>Beispiel L1 — Lagerhalle Dach, Schnee Klagenfurt</summary>
+              <div class="beispiel-body">
+                <p>h = 30 cm, g<sub>2</sub> = 3,5 kN/m², s<sub>0</sub> = 2,65 kN/m², keine Nutzlast.</p>
+                <p class="rechnung">g<sub>1</sub> = 25 · 0,30 = 7,5 kN/m²</p>
+                <p class="rechnung">g<sub>ges,k</sub> = 7,5 + 3,5 = 11,0 kN/m²</p>
+                <p class="rechnung">s<sub>k</sub> = 0,8 · 2,65 = 2,12 kN/m²</p>
+                <p class="rechnung">q<sub>sd</sub> = 1,35 · 11,0 + 1,50 · 2,12 = 14,85 + 3,18 = <strong>18,03 kN/m²</strong></p>
+              </div>
+            </details>
+
+            <details class="beispiel">
+              <summary>Beispiel L2 — EG-Decke mit Nutzlast</summary>
+              <div class="beispiel-body">
+                <p>h = 25 cm, g<sub>2</sub> = 2,0 kN/m², q<sub>k</sub> = 4,0 kN/m².</p>
+                <p class="rechnung">g<sub>1</sub> = 25 · 0,25 = 6,25 kN/m²</p>
+                <p class="rechnung">g<sub>ges,k</sub> = 8,25 kN/m²</p>
+                <p class="rechnung">q<sub>sd</sub> = 1,35 · 8,25 + 1,50 · 4,0 = 11,14 + 6,00 = <strong>17,14 kN/m²</strong></p>
+              </div>
+            </details>
+
+            <details class="beispiel">
+              <summary>Beispiel L4 — Eigengewicht Scheibe als Streckenlast</summary>
+              <div class="beispiel-body">
+                <p>d<sub>S</sub> = 25 cm, h<sub>S</sub> = 3,6 m (Länge fällt raus, weil kN/m entlang der Scheibe).</p>
+                <p class="rechnung">g<sub>k</sub> = 25 · 0,25 · 3,6 = 22,5 kN/m</p>
+                <p class="rechnung">g<sub>sd</sub> = 1,35 · 22,5 = <strong>30,4 kN/m</strong></p>
+                <p>In der Prüfung oft mit der Deckenlast an der Scheibenoberkante überlagern.</p>
+              </div>
+            </details>
+
+            <details class="beispiel">
+              <summary>Beispiel L5 — Stützenkräfte, l<sub>x</sub> = l<sub>y</sub> = 6,0 m</summary>
+              <div class="beispiel-body">
+                <p>q<sub>sd</sub> = 18,0 kN/m², ohne Überstand.</p>
+                <p class="rechnung">S1 innen: 1,1·6 · 1,1·6 · 18 = 6,6 · 6,6 · 18 = <strong>783 kN</strong></p>
+                <p class="rechnung">S2 Rand: 1,1·6 · 0,4·6 · 18 = 6,6 · 2,4 · 18 = <strong>285 kN</strong></p>
+                <p class="rechnung">S3 Ecke: 0,4·6 · 0,4·6 · 18 = 2,4 · 2,4 · 18 = <strong>104 kN</strong></p>
+              </div>
+            </details>
+          </div>
+          <aside class="rand">
+            <h2>Rotstift</h2>
+            <p>h in Meter, nicht in cm in die 25·h-Formel.</p>
+            <p>Schnee: μ<sub>1</sub> = 0,8 nicht vergessen. s<sub>0</sub> ist nicht s<sub>k</sub>.</p>
+            <p>Innendecke: kein Schnee. Dach: oft keine Nutzlast.</p>
+            <p>1,35 nur auf g, 1,50 nur auf q — nicht beides auf die Summe.</p>
+          </aside>
+        </div>
+      </article>
+      <div id="pager-root"></div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

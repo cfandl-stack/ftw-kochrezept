@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lagerhalle 2013 · Flächentragwerke</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="ex-lager">
+  <a class="skip" href="#blatt">Zum Blatt</a>
+  <div class="shell">
+    <div id="nav-root"></div>
+    <div class="sheet-wrap">
+      <article class="sheet">
+        <header class="schriftfeld">
+          <div class="sf-code">17.06.2013</div>
+          <div class="sf-title">Lagerhalle</div>
+          <div class="sf-meta">Prüfung<br><b>100 Punkte · 180 min</b></div>
+        </header>
+        <div class="blatt">
+          <div class="kolumne" id="blatt">
+            <p class="lead">Dieselbe Lastaufstellung wie im Kochrezept-Beispiel L1/L2. Punkte: punktgestütztes Dach 40, 2-achsige EG-Decke 28, Scheibe 18, Bewehrungspläne 14.</p>
+
+            <p class="pdf-tools">
+              <a href="pruefungen/komplett/130617_Lagerhalle_komplett.pdf" target="_blank" rel="noopener">PDF im Tab</a>
+              <a href="lasten.html">Kochrezept Lasten</a>
+            </p>
+            <div class="pdf-frame">
+              <iframe title="Lagerhalle komplett" src="pruefungen/komplett/130617_Lagerhalle_komplett.pdf"></iframe>
+            </div>
+
+            <h2>Angabe in Kurzform</h2>
+            <ul>
+              <li>C30/37, BSt 550S, XC1, 50 a</li>
+              <li>Dach h = 30 cm, g<sub>2</sub> = 3,5 kN/m², s<sub>0</sub> Klagenfurt 2,65 kN/m², Stützen 30×30, Überstand 0,4 m, keine Nutzlast</li>
+              <li>EG 12 × 11 m, h = 25 cm, 2-feldrig 2-achsig, zwei Öffnungen (rechnen weglassen, im Plan berücksichtigen)</li>
+              <li>Wandartiger Träger 25 cm, 7,2 × 11 m; Stützen oben dürfen für die Zugbewehrung verschmiert werden (steht so in der Angabe — nicht der Kindergarten-Fall)</li>
+            </ul>
+
+            <details class="beispiel">
+              <summary>Durchrechnung — Lasten (wie L1 und L2)</summary>
+              <div class="beispiel-body">
+                <p class="rechnung">Dach: g<sub>1</sub> = 7,5 &nbsp; g<sub>ges</sub> = 11,0 &nbsp; s<sub>k</sub> = 0,8 · 2,65 = 2,12</p>
+                <p class="rechnung">q<sub>sd,Dach</sub> = 1,35 · 11,0 + 1,50 · 2,12 = <strong>18,03 kN/m²</strong></p>
+                <p class="rechnung">EG: g<sub>1</sub> = 6,25 &nbsp; g<sub>ges</sub> = 8,25 &nbsp; q<sub>k</sub> = 4,0</p>
+                <p class="rechnung">q<sub>sd,EG</sub> = 1,35 · 8,25 + 1,50 · 4,0 = <strong>17,14 kN/m²</strong></p>
+                <p>Achsabstände und Stützenraster stehen im Grundriss der PDF-Seite 3 — von dort l<sub>x</sub>, l<sub>y</sub> für DLT und Einflussflächen.</p>
+              </div>
+            </details>
+
+            <details class="beispiel">
+              <summary>Durchrechnung — Reihenfolge der drei Bauteile</summary>
+              <div class="beispiel-body">
+                <ol>
+                  <li>Dach: DLT-Momente (Überstand weglassen), μ–ω für max. Stütz- und Feldmoment. Dann S1/S2/S3 Durchstanzen mit 0,4 m Überstand. Bügel nur wo nötig, Skizze S1.</li>
+                  <li>EG: Czerny, Lastumordnung, Drill. Öffnungen in der Rechnung 0, im Bewehrungsplan Zulagen.</li>
+                  <li>Scheibe: Streckenlast oben aus verschmierten Stützen + Eigengewicht 25 · 0,25 · 7,2 = 45 kN/m charakteristisch. Unten die EG-Auflagerlinie. Fachwerk, Zug, Knoten. Graphik auf der letzten PDF-Seite für Hebelarm.</li>
+                  <li>Pläne: Rundschnitt S1, 2-achsige Platte inkl. Öffnungen und Ränder, Scheibe inkl. Anschluss.</li>
+                </ol>
+              </div>
+            </details>
+          </div>
+          <aside class="rand">
+            <h2>Rotstift</h2>
+            <p>Hier dürfen Stützenlasten für die Zugbewehrung verschmiert werden — die Angabe sagt das ausdrücklich.</p>
+            <p>Öffnungen: Schnittgrößen ohne, Bewehrung mit.</p>
+            <p>s₀ = 2,65 ist noch nicht sₖ.</p>
+          </aside>
+        </div>
+      </article>
+      <div id="pager-root"></div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

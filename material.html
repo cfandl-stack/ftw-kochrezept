@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Materialkennwerte · Flächentragwerke</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="material">
+  <a class="skip" href="#blatt">Zum Blatt</a>
+  <div class="shell">
+    <div id="nav-root"></div>
+    <div class="sheet-wrap">
+      <article class="sheet">
+        <header class="schriftfeld">
+          <div class="sf-code">LV <b>875.326</b></div>
+          <div class="sf-title">Materialkennwerte</div>
+          <div class="sf-meta">Blatt 01<br><b>Beton · Stahl · Deckung</b></div>
+        </header>
+        <div class="blatt">
+          <div class="kolumne" id="blatt">
+            <p class="lead">Bevor irgendein Bauteil gerechnet wird: Beton, Stahl und Betondeckung in einer Box hinschreiben. In der Prüfung gilt fast immer XC1 und 50 Jahre.</p>
+
+            <h2>Beton</h2>
+            <p>Die Klasse C30/37 heißt: <i>f</i><sub>ck</sub> = 30 N/mm² (Zylinder), <i>f</i><sub>ck,cube</sub> = 37 N/mm². Für die Bemessung brauchst du den Bemessungswert der Druckfestigkeit:</p>
+            <p class="eq"><span class="eq-label">ÖNORM EN 1992-1-1</span><i>f</i><sub>cd</sub> = <i>f</i><sub>ck</sub> / γ<sub>c</sub> &nbsp; mit &nbsp; γ<sub>c</sub> = 1,5</p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Klasse</th>
+                    <th class="num"><i>f</i><sub>ck</sub></th>
+                    <th class="num"><i>f</i><sub>cd</sub></th>
+                    <th class="num"><i>f</i><sub>ctm</sub></th>
+                    <th class="num"><i>E</i><sub>cm</sub></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>C20/25</td><td class="num">20</td><td class="num">13,3</td><td class="num">2,2</td><td class="num">30 000</td></tr>
+                  <tr><td>C25/30</td><td class="num">25</td><td class="num">16,7</td><td class="num">2,6</td><td class="num">31 000</td></tr>
+                  <tr><td>C30/37</td><td class="num">30</td><td class="num">20,0</td><td class="num">2,9</td><td class="num">33 000</td></tr>
+                  <tr><td>C35/45</td><td class="num">35</td><td class="num">23,3</td><td class="num">3,2</td><td class="num">34 000</td></tr>
+                  <tr><td>C40/50</td><td class="num">40</td><td class="num">26,7</td><td class="num">3,5</td><td class="num">35 000</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Einheiten in der Tabelle: Festigkeiten in N/mm², <i>E</i><sub>cm</sub> in N/mm². <i>f</i><sub>ctm</sub> brauchst du für die Mindestbewehrung, <i>E</i><sub>cm</sub> für grobe Durchbiegung.</p>
+            <p>Schubwiderstandsbeiwert aus der Vorlesung (Durchstanzen): Faustregel τ<sub>Rd</sub> ≈ 0,28 N/mm² für C30/37.</p>
+
+            <h2>Bewehrungsstahl</h2>
+            <p>In österreichischen FTW-Prüfungen fast immer BSt 550S (ältere Angaben manchmal BSt 500S — dann <i>f</i><sub>yk</sub> aus der Angabe nehmen).</p>
+            <p class="eq"><i>f</i><sub>yk</sub> = 550 N/mm²<br><i>f</i><sub>yd</sub> = <i>f</i><sub>yk</sub> / γ<sub>s</sub> = 550 / 1,15 ≈ 478 N/mm²</p>
+
+            <h2>Betondeckung</h2>
+            <p>Nutzungsdauer 50 Jahre, Exposition XC1 (trocken) — der Standardfall:</p>
+            <p class="eq"><i>c</i><sub>nom</sub> = <i>c</i><sub>min,dur</sub> + Δ<i>c</i><sub>dev</sub> = 15 mm + 5 mm = 20 mm</p>
+            <p>XC2/XC3/XC4 oder 100 Jahre Nutzungsdauer: <i>c</i><sub>min,dur</sub> steigt. Dachplatten, die undicht sein können, werden in Übungen oft oben XC3 oder XC2 gerechnet (größere Deckung oben). Verbundbedingung: <i>c</i><sub>min,b</sub> = Stabdurchmesser, mindestens 10 mm.</p>
+            <div class="kasten">
+              <h3>Was du für Biegung + Schub hinschreibst</h3>
+              <p><i>f</i><sub>ck</sub>, <i>f</i><sub>cd</sub>, <i>f</i><sub>ctm</sub>, <i>f</i><sub>yk</sub>, <i>f</i><sub>yd</sub>, <i>c</i><sub>nom</sub>. Ohne diese sechs Werte keine saubere Biegebemessung.</p>
+            </div>
+
+            <details class="beispiel">
+              <summary>Beispiel M1 — Büro, C35/45</summary>
+              <div class="beispiel-body">
+                <p>Gegeben: C35/45, BSt 550S, 50 Jahre, XC1.</p>
+                <p class="rechnung"><i>f</i><sub>ck</sub> = 35 N/mm²</p>
+                <p class="rechnung"><i>f</i><sub>cd</sub> = 35 / 1,5 = 23,3 N/mm²</p>
+                <p class="rechnung"><i>f</i><sub>ctm</sub> = 3,2 N/mm² &nbsp; <i>E</i><sub>cm</sub> = 34 000 N/mm²</p>
+                <p class="rechnung"><i>f</i><sub>yk</sub> = 550 N/mm² &nbsp; <i>f</i><sub>yd</sub> = 550 / 1,15 = 478 N/mm²</p>
+                <p class="rechnung"><i>c</i><sub>nom</sub> = 15 + 5 = 20 mm</p>
+              </div>
+            </details>
+
+            <details class="beispiel">
+              <summary>Beispiel M3 — C25/30 gegen C30/37</summary>
+              <div class="beispiel-body">
+                <p>C25/30: <i>f</i><sub>cd</sub> = 16,7 N/mm², <i>f</i><sub>ctm</sub> = 2,6 N/mm².</p>
+                <p>C30/37: <i>f</i><sub>cd</sub> = 20,0 N/mm². Änderung: (20,0 − 16,7) / 16,7 ≈ <strong>+20 %</strong>.</p>
+                <p>Höhere Betonklasse → kleinere Druckzone, tendenziell weniger Biegebewehrung. Querkraftwiderstand steigt mit <i>f</i><sub>ck</sub>.</p>
+              </div>
+            </details>
+
+            <details class="beispiel">
+              <summary>Beispiel M4 — falsches γ<sub>c</sub></summary>
+              <div class="beispiel-body">
+                <p>Jemand rechnet <i>f</i><sub>cd</sub> = 30 / 1,2 = 25,0 N/mm² statt 30 / 1,5 = 20,0 N/mm².</p>
+                <p>Zu großes <i>f</i><sub>cd</sub> → zu kleines μ, zu wenig <i>A</i><sub>s</sub>. Unterbemessung, nicht normkonform.</p>
+              </div>
+            </details>
+          </div>
+          <aside class="rand">
+            <h2>Rotstift</h2>
+            <p>γ<sub>c</sub> = 1,5. Nicht 1,2.</p>
+            <p>BSt 550S: durch 1,15, Ergebnis 478 — nicht 500.</p>
+            <p>XC1 und 50 a: 20 mm. Fundament oft XC2 → mehr Deckung.</p>
+            <p><i>f</i><sub>ctm</sub> nicht vergessen: sonst wird die Mindestbewehrung falsch.</p>
+          </aside>
+        </div>
+      </article>
+      <div id="pager-root"></div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

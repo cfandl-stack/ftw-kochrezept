@@ -19,90 +19,229 @@
         </header>
         <div class="blatt">
           <div class="kolumne" id="blatt">
-            <p class="lead">Zuerst die Abgrenzung. Die Prüfung meint mit „Scheibe“ oft den wandartigen Träger unter den Stützen — dann Fachwerk. Die Übung 07 meint die Wandscheibe unter Druck — dann Modellstütze.</p>
+            <p class="lead">Zuerst die Abgrenzung. Wenn die Prüfung „Scheibe“ schreibt, meint sie fast immer den <b>wandartigen Träger</b>: eine Wand, die auf zwei Punkten liegt und Lasten überbrückt. Den rechnest du mit einem Fachwerk. Die Übung 07 behandelt zusätzlich die <b>Wandscheibe</b>, die durchgehend aufliegt und auf Druck beansprucht wird. Die rechnest du wie eine Stütze mit Knicknachweis.</p>
 
-            <h2>Abgrenzung</h2>
+            <h2>Abgrenzung: welches Bauteil habe ich?</h2>
+            <div class="viz-row">
+              <figure class="viz">
+                <img src="img/scheibe-03-abgrenzung-stuetze.png" alt="Querschnitt h/b ≥ 4 Scheibe, h/b &lt; 4 Stütze">
+                <figcaption>Übung 07, Folie 3. Über den Querschnitt: h/b ≥ 4 ist eine Scheibe, sonst eine Stütze.</figcaption>
+              </figure>
+              <figure class="viz">
+                <img src="img/scheibe-04-abgrenzung-wt.png" alt="Wandartiger Träger auf zwei Lagern, Scheibe durchgehend gelagert">
+                <figcaption>Folie 4. Über die Lagerung: auf zwei Punkten wie ein Balken → wandartiger Träger. Durchgehend gelagert → Scheibe.</figcaption>
+              </figure>
+            </div>
+            <div class="wt-decide" id="wt-decide"></div>
             <div class="table-wrap">
               <table>
                 <thead>
                   <tr><th></th><th>Kriterium</th><th>Folge</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td>Scheibe vs. Stütze</td><td>h/b ≥ 4 → Scheibe, sonst Stütze</td><td>Querschnitt, nicht die Wandhöhe allein</td></tr>
-                  <tr><td>Scheibe vs. wandartiger Träger</td><td>Lagerung</td><td>kontinuierlich → Scheibe; wie Balken aufgelagert → WT</td></tr>
+                  <tr><td>Scheibe vs. Stütze</td><td>h/b ≥ 4 → Scheibe, sonst Stütze</td><td>entscheidet der Querschnitt, nicht die Wandhöhe</td></tr>
+                  <tr><td>Scheibe vs. wandartiger Träger</td><td>Lagerung</td><td>durchgehend → Scheibe, punktuell wie ein Balken → WT</td></tr>
                   <tr><td>Scheibe vs. Platte</td><td>Beanspruchung</td><td>überwiegend Biegung aus der Ebene → Platte</td></tr>
+                  <tr><td>WT vs. Balken</td><td>l/h: Einfeld &lt; 2,0, Zweifeld &lt; 2,5, viele Felder &lt; 3,0</td><td>darüber ist es ein normaler Balken mit Biegebemessung</td></tr>
                 </tbody>
               </table>
             </div>
 
-            <h2>Weg A — wandartiger Träger, Fachwerk</h2>
-            <p>So stehen Kindergarten und Wohnbau in der Angabe: Stützen als Einzellasten oben, Deckenlast als Strecke, Eigengewicht der Scheibe als Strecke (oft oben angesetzt).</p>
+            <h2>Weg A: wandartiger Träger (Fachwerk)</h2>
+
+            <h3>Warum nicht einfach Balkenbiegung?</h3>
+            <p>Beim schlanken Balken ist die Spannung über die Höhe linear verteilt (Navier), der Hebelarm ist z ≈ 0,8 h. Beim gedrungenen Träger stimmt das nicht mehr. Die Zugzone rutscht ganz nach unten und wird dünn, die Druckzone ist breit und sitzt tief. Der Hebelarm wächst deshalb <em>nicht</em> mehr mit der Höhe mit.</p>
+            <div class="viz-row">
+              <figure class="viz">
+                <img src="img/scheibe-27-spannung-schlank.png" alt="Spannungsverteilung bei l/h = 4 linear, bei l/h = 2 bereits gekrümmt">
+                <figcaption>Folie 27. l/h = 4: fast linear, T = 0,75 q·l. l/h = 2: schon gekrümmt, T = 0,38 q·l.</figcaption>
+              </figure>
+              <figure class="viz">
+                <img src="img/scheibe-28-spannung-gedrungen.png" alt="Spannungsverteilung bei l/h = 1 und l/h &lt; 1, Zugkraft etwa 0,2 q l">
+                <figcaption>Folie 28. l/h = 1: Zugkraft nur noch T ≈ 0,20 q·l, konzentriert im unteren Viertel. Mehr Höhe bringt nichts mehr.</figcaption>
+              </figure>
+            </div>
+            <div class="wt-lever" id="wt-lever"></div>
+            <figure class="viz narrow">
+              <img src="img/scheibe-41-fe-trajektorien.jpg" alt="FE-Berechnung Hauptspannungen im wandartigen Träger">
+              <figcaption>Folie 41, FE-Ergebnis. Die Druckspannungen laufen als Bogen von der Last zu den Lagern, unten spannt ein Zugband das Bogenende zusammen. Genau das bildet das Fachwerkmodell ab.</figcaption>
+            </figure>
+
+            <h3>Das Fachwerkmodell: Bogen plus Zugband</h3>
+            <div class="viz-row">
+              <figure class="viz">
+                <img src="img/scheibe-30-stabwerk.png" alt="Stabwerksmodell mit Druckstreben D, Zugstrebe Z, Knoten K1 und K2">
+                <figcaption>Folie 30. Druckstreben D sammeln die Druckspannungen, die Zugstrebe Z unten wird zur Bewehrung. K1 und K2 sind die Knoten.</figcaption>
+              </figure>
+              <figure class="viz">
+                <img src="img/scheibe-42-hebelarm.png" alt="Hebelarm z = min(0,6 l; 0,75 h) beim Einfeldträger">
+                <figcaption>Folie 42. Hebelarm vereinfacht: z = min(0,6·l; 0,75·h) beim Einfeldträger, min(0,4·l; 0,75·h) beim Durchlaufträger.</figcaption>
+              </figure>
+            </div>
+            <div class="wt-legend">
+              <span><svg viewBox="0 0 44 10" aria-hidden="true"><line class="wt-d" x1="2" y1="5" x2="42" y2="5"/></svg> Druckstrebe D (Beton)</span>
+              <span><svg viewBox="0 0 44 10" aria-hidden="true"><line class="wt-z" x1="2" y1="5" x2="42" y2="5"/></svg> Zugstrebe Z (Bewehrung)</span>
+              <span><svg viewBox="0 0 44 10" aria-hidden="true"><line class="wt-load" x1="22" y1="0" x2="22" y2="9"/></svg> Last</span>
+            </div>
+            <p>Diese Farben verwenden auch die FE-Bilder der Übung (grün Druck, rot Zug). In der Prüfung verlangt die Angabe ausdrücklich: <b>Druck und Zug unterschiedlich kennzeichnen</b>.</p>
+
+            <h3>Die drei Laststellungen aus der Prüfung</h3>
+            <p>Kindergarten 2015 und Schulgebäude 2014 verlangen drei getrennte Fachwerkmodelle, deren Zugkräfte du am Ende addierst. Lagerhalle 2013 verschmiert alles zu einer Gleichlast und braucht nur Modell ②. Der Rechner ist mit den Werten der Kindergarten-Lösung vorbelegt. Stell deine eigenen Zahlen ein, die Skizzen passen sich an.</p>
+
+            <div class="cz-app wt-app" id="wt-app">
+              <div class="cz-controls">
+                <label><span>Höhe h<sub>S</sub> [m]</span><input id="wt-h" type="number" step="0.1" min="1" value="8.0"></label>
+                <label><span>Gesamtlänge l<sub>ges</sub> [m]</span><input id="wt-l" type="number" step="0.1" min="1" value="12.8"></label>
+                <label><span>Lagerlänge l<sub>Lager</sub> [m]</span><input id="wt-la" type="number" step="0.05" min="0.1" value="0.8"></label>
+                <label><span>Dicke d<sub>S</sub> [m]</span><input id="wt-d" type="number" step="0.05" min="0.1" value="0.30"></label>
+                <label><span>fck [N/mm²]</span><input id="wt-fck" type="number" step="5" min="20" value="35"></label>
+                <label><span>fyd [N/mm²]</span><input id="wt-fyd" type="number" step="1" value="478"></label>
+                <label><span>① Einzellast Mitte F<sub>d</sub> [kN]</span><input id="wt-f" type="number" step="1" min="0" value="313.4"></label>
+                <label><span>② Gleichlast q<sub>d</sub> [kN/m]</span><input id="wt-q" type="number" step="1" min="0" value="81"></label>
+                <label><span>③ Streckenlast linke Hälfte q<sub>d</sub> [kN/m]</span><input id="wt-qh" type="number" step="1" min="0" value="122.97"></label>
+              </div>
+              <div class="cz-buttons">
+                <button type="button" data-wt="kiga">Kindergarten 2015</button>
+                <button type="button" data-wt="lager">Lagerhalle 2013</button>
+                <button type="button" data-wt="uebung">Übung 07</button>
+              </div>
+              <div id="wt-out"></div>
+            </div>
+            <div class="note"><strong>Stützen, die direkt über einem Lager stehen</strong> (Kindergarten: S3), erzeugen keine Zugkraft im Zugband. Sie gehen nur in die Auflagerkraft und in die Auflagerpressung ein. Im Rechner: ihre Last nicht bei F eintragen, sondern der Auflagerkraft dazurechnen.</div>
+
+            <h3>Auflager: Druckspannung im Knoten</h3>
+            <figure class="viz narrow">
+              <img src="img/scheibe-34-knoten-dzd.png" alt="D-Z-D-Knoten am Auflager, Druckspannung σcd = F/(l_Lager·d), Grenzwert 0,85·ν·fcd">
+              <figcaption>Folie 34. Am Auflager treffen Druckstrebe und Zugband aufeinander (D-Z-D-Knoten). In der Prüfung reicht meist die vertikale Pressung σ = F<sub>A</sub> / (l<sub>Lager</sub>·d) ≤ 0,85·ν·f<sub>cd</sub>. Die schräge Strebe (a<sub>2</sub>) nur, wenn verlangt.</figcaption>
+            </figure>
+            <p class="eq">σ<sub>cd,A</sub> = F<sub>d,A</sub> / (l<sub>Lager</sub> · d<sub>S</sub>) ≤ σ<sub>Rd,max</sub> = 0,85 · ν · f<sub>cd</sub> &nbsp;&nbsp; ν = 1 − f<sub>ck</sub>/250</p>
+            <p>Die Zugbewehrung muss ab der <b>Vorderkante des Auflagers</b> voll verankert sein, am besten mit Schlaufen oder Winkelhaken.</p>
+
+            <h3>Bewehrung verteilen und zeichnen</h3>
+            <div class="viz-row">
+              <figure class="viz">
+                <img src="img/scheibe-38-bewehrung-verteilung.png" alt="Verteilung der Feld- und Stützbewehrung über die Höhe">
+                <figcaption>Folie 38. Feldbewehrung A<sub>s</sub> auf u = min(0,1·l; 0,1·h) verteilen, zusätzlich 25 % horizontal zwischen 0,1 und 0,3·h.</figcaption>
+              </figure>
+              <figure class="viz">
+                <img src="img/scheibe-53-bewehrung-wt.png" alt="Bewehrungsskizze wandartiger Träger aus Übung 07">
+                <figcaption>Folie 53. So sieht die Skizze in der Übung aus: Zugband unten mit Endverankerung, Netz beidseitig, Randeinfassung.</figcaption>
+              </figure>
+            </div>
+            <ul>
+              <li>Zugband <b>ungeschwächt bis über die Auflager</b> führen und dort voll verankern. Nicht abstufen.</li>
+              <li>Zugband auf die Höhe u = min(0,1·h; 0,1·l) verteilen, nicht als einen Stab ganz unten.</li>
+              <li>Zusätzlich 25 % der Zugbewehrung horizontal zwischen 0,1 h und 0,3 h (Umlenkkräfte der Druckstreben).</li>
+              <li>Netz auf beiden Seiten: a<sub>s,min</sub> = 0,001·a<sub>c</sub>, mindestens 1,5 cm²/m je Seite. Stababstand höchstens 2·d bzw. 30 cm.</li>
+              <li>Mindestdicke 15 cm (Ortbeton).</li>
+              <li>Mehrfeldträger, Stützbewehrung: 1/3 auf 0,1 l bis 0,3 l, 2/3 auf 0,3 l bis 0,7 l von unten verteilen.</li>
+            </ul>
+
+            <h3>Öffnungen und andere Laststellungen</h3>
+            <div class="viz-row">
+              <figure class="viz">
+                <img src="img/scheibe-46-fwm-modelle.png" alt="Fachwerkmodelle für Last oben und Last unten">
+                <figcaption>Folie 46. Last oben: Bogen direkt zum Lager. Last unten (angehängt): erst mit Zugstreben nach oben hängen, dann wie oben.</figcaption>
+              </figure>
+              <figure class="viz">
+                <img src="img/scheibe-62-fwm-oeffnung.jpg" alt="Fachwerkmodell eines wandartigen Trägers mit Öffnung über FE-Trajektorien">
+                <figcaption>Folie 62. Mit Öffnung: Druckstreben (grün) laufen um die Öffnung herum, über und unter der Öffnung braucht es Zugbänder (rot).</figcaption>
+              </figure>
+            </div>
+            <p>Faustregel für jedes Modell: Druckstreben folgen den Druckspannungen (von der Last schräg zum Lager), Zugstreben gehören dorthin, wo du auch Bewehrung einlegen kannst (waagrecht oder lotrecht). Winkel der Druckstrebe höchstens etwa 68°, sonst ist das Modell zu steil.</p>
+
+            <h3>Rechenweg in der Prüfung</h3>
             <div class="pos">
               <div class="pos-nr">1</div>
               <div>
-                <h3>Lastfälle getrennt skizzieren</h3>
-                <p>Drei Modelle, dann superponieren: (1) Einzellasten der Stützen, (2) Streckenlast Terrasse/Decke, (3) Eigengewicht. Druckstreben und Zugbänder unterschiedlich zeichnen.</p>
+                <h3>Geometrie und Einordnung</h3>
+                <p>l<sub>eff</sub> = l<sub>ges</sub> − l<sub>Lager</sub>, l<sub>eff</sub>/h &lt; 2 → wandartiger Träger. u = min(0,1·h; 0,1·l<sub>eff</sub>).</p>
               </div>
             </div>
             <div class="pos">
               <div class="pos-nr">2</div>
               <div>
-                <h3>Hauptzugbewehrung</h3>
-                <p>Zugkraft aus dem Fachwerk / f<sub>yd</sub>, plus konstruktive Anforderungen (Verankerung über die Knoten, Mindestbewehrung). Überlagerung der Lastfälle für die maßgebende Zugstrebe.</p>
+                <h3>Lastfälle getrennt skizzieren</h3>
+                <p>Einzellasten der Stützen (nicht verschmieren), Deckenlast als Strecke oder Resultierende im Viertelspunkt, Eigengewicht 1,35·25·d·h als Strecke oben. Je ein Fachwerk, Druck und Zug unterscheiden.</p>
               </div>
             </div>
             <div class="pos">
               <div class="pos-nr">3</div>
               <div>
-                <h3>Druck am Auflager</h3>
-                <p>Oft nur vertikale Auflagerkräfte gegen die Druckspannung im Auflagerquerschnitt. Schräge Diagonalen nicht rechnen, wenn die Angabe das so begrenzt.</p>
+                <h3>Zugkräfte addieren, bemessen</h3>
+                <p>Z = ΣZ<sub>i</sub>, A<sub>s</sub> = Z / f<sub>yd</sub>, auf u verteilen, plus konstruktive Bewehrung.</p>
               </div>
             </div>
-            <p>Einseitige Deckenlast auf die Scheibe: in der Prüfung häufig als Resultierende im Viertelspunkt, obwohl die Abtragung trapezförmig wäre.</p>
+            <div class="pos">
+              <div class="pos-nr">4</div>
+              <div>
+                <h3>Druck am Auflager</h3>
+                <p>ΣF<sub>A</sub> am stärker belasteten Lager, σ = F<sub>A</sub>/(l<sub>Lager</sub>·d) ≤ 0,85·ν·f<sub>cd</sub>.</p>
+              </div>
+            </div>
 
-            <h2>Weg B — Wandscheibe, Modellstütze</h2>
-            <p>Vorwiegend Druck in der Ebene, 1 m Wandstreifen, Ü-Skript ab S. 352.</p>
-            <p class="eq">l<sub>0</sub> = β · l<sub>w</sub></p>
-            <ul>
-              <li>zweiseitig gehalten: β = 1,0</li>
-              <li>zweiseitig eingespannt: β = 0,85</li>
-              <li>dreiseitig gehalten: β = 1 / {1 + [l<sub>w</sub>/(3b)]²}</li>
-              <li>vierseitig, b ≥ l<sub>w</sub>: β = 1 / [1 + (l<sub>w</sub>/b)²]</li>
-              <li>vierseitig, b &lt; l<sub>w</sub>: β = b / (2 l<sub>w</sub>)</li>
-            </ul>
-            <p>Öffnung zählt als ungestützter Rand, wenn l<sub>ö</sub> &gt; l<sub>w</sub>/3 oder ΣA<sub>Öffnung</sub> &gt; 10 % der Wandfläche. Dann die Scheibe in Stützen- und Balkenbereiche zerlegen (wie Ausstellungsgebäude mit Fenstern).</p>
+            <h2>Weg B: Wandscheibe (Modellstütze)</h2>
+            <p>Die Wand liegt durchgehend auf und bekommt vorwiegend Druck in ihrer Ebene. Gerechnet wird ein 1 m breiter Wandstreifen wie eine Stütze (Ü-Skript ab S. 352). Die Frage ist nur: Wie lang ist die Knicklänge? Das hängt davon ab, an wie vielen Seiten die Wand gehalten ist.</p>
+            <figure class="viz narrow">
+              <img src="img/scheibe-07-haltungen.png" alt="Zwei-, drei- und vierseitig gehaltene Wände und die Knickbeiwerte β">
+              <figcaption>Folie 7. Decken halten die Wand oben und unten, aussteifende Querwände zusätzlich seitlich. Jede zusätzliche Haltung verkürzt die Knicklänge l<sub>0</sub> = β·l<sub>w</sub>.</figcaption>
+            </figure>
+
+            <p>Der Rechner ist mit dem Übungsbeispiel vorbelegt (20 cm Innenwand, vierseitig gehalten, Lösung: λ = 40,28 &gt; 25). Stell die Haltung um und schau, wie sich β und λ ändern.</p>
+            <div class="cz-app wt-app" id="wb-app">
+              <div class="cz-controls">
+                <label><span>Haltung</span>
+                  <select id="wb-case">
+                    <option value="2g">zweiseitig gehalten</option>
+                    <option value="2e">zweiseitig eingespannt</option>
+                    <option value="3">dreiseitig gehalten</option>
+                    <option value="4" selected>vierseitig gehalten</option>
+                  </select></label>
+                <label><span>lichte Höhe l<sub>w</sub> [m]</span><input id="wb-lw" type="number" step="0.05" min="0.5" value="2.80"></label>
+                <label><span>Breite b [m]</span><input id="wb-b" type="number" step="0.05" min="0.5" value="6.20"></label>
+                <label><span>Dicke h<sub>w</sub> [cm]</span><input id="wb-hw" type="number" step="1" min="8" value="20"></label>
+                <label><span>n<sub>Ed</sub> [kN/m]</span><input id="wb-n" type="number" step="10" min="0" value="1980"></label>
+                <label><span>fck [N/mm²]</span><input id="wb-fck" type="number" step="5" min="20" value="20"></label>
+              </div>
+              <div id="wb-out"></div>
+            </div>
             <p class="eq">n = n<sub>Ed</sub> / (h<sub>w</sub> · f<sub>cd</sub>)<br>
               n ≥ 0,41 → λ<sub>lim</sub> = 25<br>
-              n &lt; 0,41 → λ<sub>lim</sub> = 16 / √n</p>
-            <p>Weiter wie Stahlbetonstütze, bezogen auf 1 m.</p>
+              n &lt; 0,41 → λ<sub>lim</sub> = 16 / √n<br>
+              λ = l<sub>0</sub> / i, &nbsp; i = h<sub>w</sub> / √12</p>
+            <p>λ &gt; λ<sub>lim</sub> → Theorie II. Ordnung (Modellstütze, Ausmitten e<sub>0</sub> + e<sub>i</sub> + e<sub>2</sub>), dann Interaktionsdiagramm. Weiter wie eine Stahlbetonstütze, bezogen auf 1 m.</p>
 
-            <h2>Konstruktion</h2>
+            <h3>Öffnungen nehmen Haltungen weg</h3>
+            <figure class="viz narrow">
+              <img src="img/scheibe-08-oeffnungen-scheibe.png" alt="Öffnungen in Wänden: Bereiche werden als ungestützt, zweiseitig oder dreiseitig gehalten betrachtet">
+              <figcaption>Folie 8. Ist eine Öffnung höher als l<sub>w</sub>/3 oder sind alle Öffnungen zusammen größer als 10 % der Wandfläche, zählt der Rand an der Öffnung als ungestützt. Dann die Wand in Teilbereiche zerlegen, jeder mit eigener Haltung.</figcaption>
+            </figure>
+
+            <h3>Konstruktion der Wandscheibe</h3>
+            <figure class="viz narrow">
+              <img src="img/scheibe-16-bewehrung-scheibe.png" alt="Bewehrungsskizze der Stahlbetonscheibe aus Übung 07">
+              <figcaption>Folie 16. Beispiel aus der Übung: CQS-Matten beidseitig, Randeinfassung Ø10, Anschlussbewehrung oben und unten.</figcaption>
+            </figure>
             <ul>
-              <li>Mindestdicke Ortbeton 12 cm, Fertigteil 10 cm.</li>
-              <li>Orthogonales Netz auf <em>beiden</em> Seiten. Lotrecht innen, horizontal außen.</li>
-              <li>Stababstand: lotrecht max. 30 cm bzw. 2 h<sub>w</sub>, horizontal max. 35 cm.</li>
-              <li>Lotrechte Mindestbewehrung: a<sub>s,vmin</sub> ≥ 0,15 |n<sub>Ed</sub>| / f<sub>yd</sub> und ≥ 0,0015 a<sub>c</sub>, bei hohem Druck ≥ 0,003 a<sub>c</sub>. Je Hälfte je Seite, mind. 1,5 cm²/m je Seite.</li>
-              <li>Horizontal: ≥ 0,2 a<sub>s,v</sub>, bei hohem Druck ≥ 0,5 a<sub>s,v</sub>.</li>
-              <li>Maximal: 0,02 a<sub>c</sub> ohne Verbügelung, 0,04 a<sub>c</sub> mit Stützenbügeln. Stirnflächen wie freie Plattenränder einfassen. Keine S-Haken als Abstandhalter.</li>
+              <li>Mindestdicke 12 cm Ortbeton, 10 cm Fertigteil, 8 cm bei Aussteifungswänden.</li>
+              <li>Netz auf <em>beiden</em> Seiten: lotrecht innen, horizontal außen.</li>
+              <li>Stababstand: lotrecht max. 30 cm bzw. 2·h<sub>w</sub>, horizontal max. 35 cm.</li>
+              <li>Lotrecht min: a<sub>s,v</sub> ≥ 0,15·|n<sub>Ed</sub>|/f<sub>yd</sub> und ≥ 0,0015·a<sub>c</sub>, bei hohem Druck (|n<sub>Ed</sub>|/a<sub>c</sub> ≥ 0,3·f<sub>cd</sub>) ≥ 0,003·a<sub>c</sub>. Je zur Hälfte pro Seite, mindestens 1,5 cm²/m je Seite.</li>
+              <li>Horizontal min: ≥ 0,2·a<sub>s,v</sub>, bei hohem Druck ≥ 0,5·a<sub>s,v</sub>.</li>
+              <li>Maximal: 0,02·a<sub>c</sub> ohne Verbügelung, 0,04·a<sub>c</sub> mit Stützenbügeln.</li>
+              <li>Stirnflächen wie freie Plattenränder einfassen. Keine S-Haken als Abstandhalter.</li>
             </ul>
-
-            <details class="beispiel">
-              <summary>Beispiel — Lasten für das Fachwerk (Kindergarten-Logik)</summary>
-              <div class="beispiel-body">
-                <p>Scheibe 30 cm, Höhe 8,0 m. Eigengewicht als Strecke an der Oberkante:</p>
-                <p class="rechnung">g<sub>k</sub> = 25 · 0,30 · 8,0 = 60 kN/m &nbsp; g<sub>sd</sub> = 1,35 · 60 = 81 kN/m</p>
-                <p>Dazu: Einzellasten aus den Dachstützen (V<sub>sd</sub> der punktgestützten Platte, nicht verschmieren) und die Auflagerlinie der Terrasse (gleichförmig oder als Resultierende im Viertelspunkt, je nach Angabe).</p>
-                <p>Drei Skizzen: nur Stützen, nur Terrasse, nur Eigengewicht. Zugband unten bzw. über Öffnungen bemessen, Kräfte addieren.</p>
-              </div>
-            </details>
           </div>
           <aside class="rand">
             <h2>Rotstift</h2>
-            <p>Erst Lagerung, dann Modell. Nicht beides mischen.</p>
-            <p>Stützenlasten nicht über die Scheibenlänge schmieren.</p>
+            <p>Erst die Lagerung, dann das Modell. Nicht beides mischen.</p>
+            <p>z = min(0,6 l; 0,75 h). Mehr Höhe bringt keinen größeren Hebelarm.</p>
+            <p>Stützenlasten nicht über die Scheibenlänge verschmieren, außer die Angabe erlaubt es.</p>
+            <p>Stütze direkt über dem Lager: keine Zugkraft, nur Auflagerkraft.</p>
             <p>Eigengewicht der Scheibe selbst rechnen.</p>
-            <p>Öffnungen &gt; 1/3 der Höhe: Halt fällt weg.</p>
-            <p>Druck und Zug in der Skizze trennen.</p>
+            <p>Druck und Zug in der Skizze unterschiedlich zeichnen.</p>
+            <p>Zugband ungeschwächt ins Lager, auf u verteilen.</p>
+            <p>Öffnung &gt; l<sub>w</sub>/3: die Haltung fällt weg.</p>
           </aside>
         </div>
       </article>
@@ -110,5 +249,6 @@
     </div>
   </div>
   <script src="js/app.js"></script>
+  <script src="js/scheibe.js"></script>
 </body>
 </html>

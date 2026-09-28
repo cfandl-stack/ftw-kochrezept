@@ -17,6 +17,7 @@ const GROUPS = [
       { id: "lasten", href: "lasten.html", nr: "02", label: "Lastaufstellung" },
       { id: "p1", href: "platte-1achsig.html", nr: "03", label: "Platte 1-achsig" },
       { id: "p2", href: "platte-2achsig.html", nr: "04", label: "Platte 2-achsig" },
+      { id: "czerny", href: "czerny-wahl.html", nr: "04a", label: "Czerny-Tafel wählen" },
       { id: "ds", href: "durchstanzen.html", nr: "05", label: "Punktgestützt / Durchstanzen" },
       { id: "scheibe", href: "scheibe.html", nr: "06", label: "Scheibe / wandartiger Träger" },
       { id: "konsole", href: "konsole.html", nr: "07", label: "Konsole" },

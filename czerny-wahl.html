@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Czerny-Tafel wählen · Flächentragwerke</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="czerny">
+  <a class="skip" href="#blatt">Zum Blatt</a>
+  <div class="shell">
+    <div id="nav-root"></div>
+    <div class="sheet-wrap">
+      <article class="sheet">
+        <header class="schriftfeld">
+          <div class="sf-code">LV <b>875.326</b></div>
+          <div class="sf-title">Welche Czerny-Tafel?</div>
+          <div class="sf-meta">Blatt 04a<br><b>Lagerungsfall finden</b></div>
+        </header>
+        <div class="blatt">
+          <div class="kolumne" id="blatt">
+            <p class="lead">Die Tafel ergibt sich aus drei Fragen: Was ist jeder Rand? Welcher Lastanteil wird gerade gerechnet? Liegt die Einspannung am langen oder am kurzen Rand? Wenn du die drei beantwortest, ist der Kasten in der Tafel eindeutig.</p>
+
+            <div class="flow" aria-label="Ablauf">
+              <b>1 · Ränder</b><i>→</i><b>2 · q′ / q″</b><i>→</i><b>3 · V1–V6</b><i>→</i><b>4 · lang / kurz</b><i>→</i><b>5 · l<sub>y</sub>/l<sub>x</sub></b>
+            </div>
+
+            <h2>1 · Jeden Rand einordnen</h2>
+            <p>In der Tafelskizze gibt es drei Randsymbole. Jeder Rand deines Feldes bekommt genau eins davon.</p>
+            <div class="cz-legend" id="cz-legend"></div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Was steht in der Angabe / im Plan</th><th>Rand in der Tafel</th></tr></thead>
+                <tbody>
+                  <tr><td>Außenwand, Unterzug, Scheibe am Plattenrand, „gelenkig und gegen Abheben gesichert“</td><td><b>gelenkig</b> (Linie)</td></tr>
+                  <tr><td>Nachbarfeld schließt an: Mittelwand, Mittelauflager auf Scheibe, „wie Mittelauflager eines Durchlaufträgers“</td><td><b>eingespannt</b> (Schraffur), aber nur je nach Lastanteil, siehe Schritt 2</td></tr>
+                  <tr><td>„gelenkige Fuge, keine Durchlaufwirkung“ (z. B. Wohnbau 2014, Achse B)</td><td><b>gelenkig</b>, obwohl dort eine Platte anschließt</td></tr>
+                  <tr><td>nichttragende Glasfassade, Kragrand, Balkonvorderkante</td><td><b>frei</b>, dann gilt keine V1–V6-Tafel mehr (siehe unten)</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="note"><strong>Eingespannt heißt hier fast nie „Wand betoniert steif ein“.</strong> In den Prüfungen bedeutet es: dort schließt ein <em>Nachbarfeld</em> an und die Platte läuft durch. Ein Außenrand ist immer gelenkig, außer die Angabe sagt ausdrücklich etwas anderes.</div>
+
+            <h2>2 · Lastumordnung: pro Lastanteil eine eigene Lagerung</h2>
+            <p>Nach Czerny wird die Last in q′ = g<sub>d</sub> + q<sub>d</sub>/2 (überall gleich) und q″ = ± q<sub>d</sub>/2 (feldweise wechselnd) zerlegt. Jeder Anteil „sieht“ andere Ränder, deshalb bekommt jeder Anteil seine eigene Tafel.</p>
+            <div class="cz-rules">
+              <div class="cz-rule">
+                <h3>Größtes Feldmoment</h3>
+                <p><b>q′:</b> eingespannt an <em>jedem</em> Rand mit Nachbarfeld.<br>
+                   <b>q″:</b> <em>alle</em> Ränder gelenkig → immer <b>V1</b>.</p>
+                <div class="cz-mini" data-mini="feld"></div>
+              </div>
+              <div class="cz-rule">
+                <h3>Größtes Stützmoment</h3>
+                <p><b>q′:</b> eingespannt an <em>jedem</em> Rand mit Nachbarfeld.<br>
+                   <b>q″:</b> eingespannt <em>nur</em> an der gesuchten Stütze → immer <b>V2</b>.</p>
+                <div class="cz-mini" data-mini="stuetz"></div>
+              </div>
+            </div>
+            <p>Warum? Beim symmetrischen Anteil q′ verdreht sich die Platte über der Stütze nicht, sie wirkt wie eingespannt. Beim antimetrischen Anteil q″ ist ein Feld nach unten, das Nachbarfeld nach oben belastet. Die Platte verdreht sich frei über die Stütze, das Moment dort ist null, also gelenkig. Nur beim Stützmoment sind beide Felder an der gesuchten Stütze gleich belastet, dort bleibt es eingespannt.</p>
+            <div class="ok"><strong>Abkürzung:</strong> Sind q′- und q″-Lagerung gleich (z. B. Stützmoment der Zweifeldplatte: beide V2), musst du nicht zerlegen. Rechne direkt mit g<sub>d</sub>+q<sub>d</sub> in dieser Tafel. Genau das macht die Übung beim Stützmoment. Beim Einfeld ohne Nachbarn ist alles V1 mit g<sub>d</sub>+q<sub>d</sub>.</div>
+
+            <h2>3 · Eingespannte Ränder zählen → V1 bis V6</h2>
+            <p>Die Skizzen sind so gedreht wie in der Tafel: <b>l<sub>x</sub> waagrecht (kurze Seite), l<sub>y</sub> senkrecht (lange Seite)</b>. Die langen Ränder sind also links und rechts.</p>
+            <div class="cz-catalog" id="cz-catalog"></div>
+
+            <h2>4 · Langer oder kurzer Rand? Der häufigste Fehler</h2>
+            <p>V2, V3 und V5 gibt es in zwei Ausführungen. Das Czerny-Koordinatensystem hängt nicht am Grundriss, sondern am Feld: <b>x ist immer die kurze Richtung</b>. Deshalb musst du dein Feld zuerst gedanklich so drehen, dass die kurze Seite waagrecht liegt. Erst dann siehst du, ob die Schraffur links/rechts (langer Rand) oder oben/unten (kurzer Rand) sitzt.</p>
+            <div class="cz-compare" id="cz-compare"></div>
+            <div class="note"><strong>Woran du die Variante in der Tafel erkennst:</strong> Schau auf die Skizze im Tafelkopf und darauf, welches Stützmoment tabelliert ist. Steht dort <b>m<sub>x,erm</sub></b>, ist der lange Rand eingespannt (so in der Übung, Folie 13/15). Steht dort <b>m<sub>y,erm</sub></b>, ist es der kurze Rand (so in der Lösung der Sporthalle 2016). Bei quadratischen Feldern (l<sub>y</sub>/l<sub>x</sub> = 1,0) sind beide gleich.</div>
+
+            <h2>5 · Spalte l<sub>y</sub>/l<sub>x</sub> und ablesen</h2>
+            <p class="eq">l<sub>x</sub> = kürzere Stützweite, l<sub>y</sub> = längere &nbsp;→&nbsp; Spalte l<sub>y</sub>/l<sub>x</sub> ≥ 1<br>
+              m = q · l<sub>x</sub>² / k &nbsp; (auch m<sub>y</sub> mit l<sub>x</sub>!) &nbsp;&nbsp; v = q · l<sub>x</sub> / k</p>
+            <ul>
+              <li>Zwischen zwei Spalten linear interpolieren (Übung: 1,18 → Mittel aus 1,15 und 1,20).</li>
+              <li>Sagt die Angabe „nicht interpolieren, schlechteren Wert nehmen“ (Bürogebäude 2013): <b>kleineres k</b> der beiden Nachbarspalten, weil ein kleineres k ein größeres Moment ergibt.</li>
+              <li>l<sub>y</sub>/l<sub>x</sub> &gt; 2: Die Platte trägt praktisch einachsig. Czerny endet dort, rechne dann als 1-achsige Platte.</li>
+            </ul>
+
+            <h2>Czerny-Finder: selbst ausprobieren</h2>
+            <p>Stell dein Deckensystem ein und <b>klick im Grundriss auf ein Feld</b> (Feldmoment) oder <b>auf eine Innenlinie</b> (Stützmoment). Der Finder zeigt dir die Lastanordnung, die Lagerung für q′ und q″ und welchen Tafelkasten du brauchst.</p>
+            <div class="cz-app" id="cz-app">
+              <div class="cz-controls">
+                <label>Felder in x <select id="cz-nc"><option>1</option><option selected>2</option><option>3</option></select></label>
+                <label>Felder in y <select id="cz-nr"><option selected>1</option><option>2</option><option>3</option></select></label>
+                <label>Feld x-Maß [m] <input id="cz-a" type="number" step="0.05" min="1" max="15" value="5.70"></label>
+                <label>Feld y-Maß [m] <input id="cz-b" type="number" step="0.05" min="1" max="15" value="6.70"></label>
+                <label><span>g<sub>d</sub> [kN/m²]</span> <input id="cz-g" type="number" step="0.01" min="0" value="9.84"></label>
+                <label><span>q<sub>d</sub> [kN/m²]</span> <input id="cz-q" type="number" step="0.01" min="0" value="6.00"></label>
+              </div>
+              <div class="cz-buttons">
+                <button type="button" id="cz-quiz">Zufallsaufgabe</button>
+                <button type="button" id="cz-reveal" hidden>Lösung zeigen</button>
+                <button type="button" id="cz-uebung">Übung 02 laden</button>
+                <button type="button" id="cz-sport">Sporthalle 2016 laden</button>
+              </div>
+              <div class="cz-plan-wrap">
+                <div id="cz-plan"></div>
+                <p class="cz-plan-key"><span class="k-plus"></span> g + q &nbsp; <span class="k-minus"></span> nur g &nbsp; <span class="k-target"></span> gesuchte Stelle</p>
+              </div>
+              <div id="cz-question" class="cz-question" hidden></div>
+              <div id="cz-result" class="cz-result"></div>
+            </div>
+
+            <h2>Die Fälle aus Übung und Altprüfungen</h2>
+            <div class="cz-cases" id="cz-cases"></div>
+
+            <h2>Sonderfall: ein Rand frei</h2>
+            <div class="kasten">
+              <h3>Feuerwehrhaus 2016: Dachplatte auf nichttragender Glasfassade</h3>
+              <div class="cz-free" id="cz-free"></div>
+              <p>Ein freier Rand passt in <em>keinen</em> der Fälle V1–V6, denn die gelten für vierseitig gelagerte Platten. Nimm die Tafel für die <b>dreiseitig gelagerte Platte</b> (in der Prüfung beigelegt: „Einspannungsfreie Lagerung der drei Ränder“).</p>
+              <ul>
+                <li>Dort ist l<sub>x</sub> der <b>freie Rand</b> und l<sub>y</sub> die Spannweite von der Lagerung zum freien Rand. l<sub>y</sub>/l<sub>x</sub> läuft von 0,25 bis 1,5, darf also kleiner als 1 sein.</li>
+                <li>Die Formeln sind auf <b>l<sub>y</sub></b> bezogen: m = p · l<sub>y</sub>² / k, v = p · l<sub>y</sub> / k. Das ist genau umgekehrt zu V1–V6.</li>
+                <li>Lösung: l<sub>x</sub> = 5,0 m, l<sub>y</sub> = 6,0 m → 1,2: m<sub>x,rm</sub> = p·l<sub>y</sub>²/12,9 am freien Rand (maßgebend), m<sub>x,m</sub> = p·l<sub>y</sub>²/16,96, m<sub>y,max</sub> = p·l<sub>y</sub>²/59,99.</li>
+              </ul>
+            </div>
+
+            <h2>Checkliste für die Prüfung</h2>
+            <ol class="checks">
+              <li><label><input type="checkbox"><span>Grundriss skizzieren, jeden Rand markieren: Linie / Schraffur / gestrichelt.</span></label></li>
+              <li><label><input type="checkbox"><span>Freier Rand? → dreiseitige Tafel, Bezug auf l<sub>y</sub>.</span></label></li>
+              <li><label><input type="checkbox"><span>Gesucht Feld- oder Stützmoment? Lastbild (Schachbrett) hinzeichnen.</span></label></li>
+              <li><label><input type="checkbox"><span>q′: Schraffur an jedem Nachbarrand. q″: Feld → V1, Stütze → V2 an dieser Stütze.</span></label></li>
+              <li><label><input type="checkbox"><span>Feld drehen: kurze Seite waagrecht = l<sub>x</sub>. Schraffur am langen oder kurzen Rand?</span></label></li>
+              <li><label><input type="checkbox"><span>Spalte l<sub>y</sub>/l<sub>x</sub>, interpolieren, m = q·l<sub>x</sub>²/k für jeden Anteil, addieren.</span></label></li>
+              <li><label><input type="checkbox"><span>Den Lagerungsfall aufs Blatt schreiben (z. B. „q′: V2, Einspannung langer Rand, l<sub>y</sub>/l<sub>x</sub> = 1,18“). Das gibt Punkte, auch wenn später ein Zahlenfehler passiert.</span></label></li>
+            </ol>
+          </div>
+          <aside class="rand">
+            <h2>Rotstift</h2>
+            <p>Außenrand = gelenkig. Eingespannt nur dort, wo ein Nachbarfeld weiterläuft.</p>
+            <p>q″ beim Feldmoment: immer V1.</p>
+            <p>q″ beim Stützmoment: immer V2.</p>
+            <p>Tafel-x ≠ Grundriss-x. Tafel-x ist die kurze Seite.</p>
+            <p>m<sub>x,erm</sub> oder m<sub>y,erm</sub>? Das verrät, welcher Rand eingespannt ist.</p>
+            <p>Freier Rand → andere Tafel, Bezug auf l<sub>y</sub>.</p>
+            <p><a href="platte-2achsig.html">← zurück zu Platte 2-achsig</a></p>
+          </aside>
+        </div>
+      </article>
+      <div id="pager-root"></div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+  <script src="js/czerny.js"></script>
+</body>
+</html>

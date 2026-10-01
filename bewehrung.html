@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bewehrungsskizzen · Flächentragwerke</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="bew">
+  <a class="skip" href="#blatt">Zum Blatt</a>
+  <div class="shell">
+    <div id="nav-root"></div>
+    <div class="sheet-wrap">
+      <article class="sheet">
+        <header class="schriftfeld">
+          <div class="sf-code">LV <b>875.326</b></div>
+          <div class="sf-title">Bewehrungsskizzen</div>
+          <div class="sf-meta">8 Bauteile<br><b>typische Bewehrungsführung</b></div>
+        </header>
+        <div class="blatt">
+          <div class="kolumne" id="blatt">
+            <p class="lead">Je Bauteil zwei schematische Skizzen und die Regeln, die im Bewehrungsplan der Prüfung abgefragt werden. Farbcode überall gleich: blau unten, rot oben, grün Bügel und Steckbügel, orange Zulagen und konstruktive Bewehrung.</p>
+            <div class="print-bar pdf-tools">
+              <a href="Bewehrungsskizzen_FTW.pdf" target="_blank" rel="noopener">PDF öffnen / drucken</a>
+              <a href="mappe.html">zur Prüfungsmappe</a>
+            </div>
+
+            <nav class="mappe-toc" aria-label="Inhalt">
+              <a href="#b1">1 · Platte 1-achsig</a>
+              <a href="#b2">2 · Platte 2-achsig</a>
+              <a href="#b3">3 · Punktgestützte Platte</a>
+              <a href="#b4">4 · Durchstanzbewehrung</a>
+              <a href="#b5">5 · Scheibe / WT</a>
+              <a href="#b6">6 · Konsole</a>
+              <a href="#b7">7 · Treppe / Tribüne</a>
+              <a href="#b8">8 · Plattenbalken / Unterzug</a>
+            </nav>
+
+            <figure class="viz" id="b1">
+              <img src="img/bew-01.png" alt="Einachsige Platte: Längsschnitt Zweifeldplatte mit Feld-, Stütz- und Randeinspannungsbewehrung, Querschnitt mit Steckbügel am freien Rand" loading="lazy">
+              <figcaption>1 · Einachsig gespannte Platte: Staffelung, obere Stützbewehrung, Randeinspannung ≥ 25 %, Querbewehrung ≥ 20 %, Steckbügel am freien Rand.</figcaption>
+            </figure>
+            <figure class="viz" id="b2">
+              <img src="img/bew-02.png" alt="Zweiachsige Platte: Draufsicht mit Lagen x und y, Drillbewehrung in den Ecken, Schnitt mit Stützbewehrung" loading="lazy">
+              <figcaption>2 · Zweiachsig gespannte Platte: kurze Richtung außen, Drillbewehrung oben und unten an gelenkigen Ecken (0,3·l<sub>x</sub>), Stützbewehrung über dem Durchlaufrand.</figcaption>
+            </figure>
+            <figure class="viz" id="b3">
+              <img src="img/bew-03.png" alt="Punktgestützte Platte: Gurt- und Feldstreifen mit Zulagen oben über der Stütze, Schnitt mit Integritätsbewehrung" loading="lazy">
+              <figcaption>3 · Punktgestützte Platte: Grundmatte oben plus Zulagen im Gurtstreifen, Integritätsbewehrung unten durch die Stütze, Randstütze eingefasst.</figcaption>
+            </figure>
+            <figure class="viz" id="b4">
+              <img src="img/bew-04.png" alt="Durchstanzbewehrung: Draufsicht mit Bügelreihen, Rundschnitten u1 und uout, Schnitt mit Bügeln und Dübelleiste" loading="lazy">
+              <figcaption>4 · Durchstanzbewehrung: erste Reihe 0,3d–0,5d, radial ≤ 0,75d, letzte Reihe ≤ 1,5d innerhalb u<sub>out</sub>, Bügel umfassen beide Lagen.</figcaption>
+            </figure>
+            <figure class="viz" id="b5">
+              <img src="img/bew-05.png" alt="Wandartiger Träger mit Zugband, Netz und Auflagerzulagen; Scheibe mit Fensteröffnung und Schrägzulagen" loading="lazy">
+              <figcaption>5 · Scheibe / wandartiger Träger: Zugband ungestaffelt bis übers Lager und verankert, beidseitiges Netz, Zulagen und Schrägzulagen an Öffnungen.</figcaption>
+            </figure>
+            <figure class="viz" id="b6">
+              <img src="img/bew-06.png" alt="Kurze Konsole mit horizontalen Bügeln und lange Konsole mit vertikalen Bügeln, jeweils mit Zugbandschlaufe" loading="lazy">
+              <figcaption>6 · Konsole: kurz (a<sub>c</sub> &lt; 0,5·h<sub>c</sub>) horizontale Bügel, lang vertikale Bügel; Zugband als Schlaufe, Verankerung ab Innenkante Lagerplatte.</figcaption>
+            </figure>
+            <figure class="viz" id="b7">
+              <img src="img/bew-07.png" alt="Treppenlauf zwischen zwei Podesten mit gekreuzter Bewehrung an der einspringenden Ecke; Detail falsch und richtig" loading="lazy">
+              <figcaption>7 · Treppe / Tribüne: an der einspringenden Ecke Stäbe kreuzen und verankern, nie um die Ecke biegen. Stufen nur als Auflast.</figcaption>
+            </figure>
+            <figure class="viz" id="b8">
+              <img src="img/bew-08.png" alt="Unterzug im Längsschnitt mit Bügelverteilung und Querschnitt Plattenbalken" loading="lazy">
+              <figcaption>8 · Plattenbalken / Unterzug: Bügel dichter am Auflager, s<sub>w,max</sub> = 0,75·d, ≥ 25 % der Feldbewehrung bis zum Auflager, Querbewehrung im Gurt.</figcaption>
+            </figure>
+          </div>
+          <aside class="rand">
+            <h2>Rotstift</h2>
+            <p>Skizzen sind schematisch, nicht maßstäblich.</p>
+            <p>Im Prüfungsplan immer dazu: Expositionsklasse, c<sub>nom</sub>, Beton- und Stahlgüte, Stabdurchmesser und Abstand.</p>
+            <p>Zahlenwerte (Netz ≥ 0,1 %, s<sub>w,max</sub>) mit Skriptum abgleichen.</p>
+            <p>BSP: keine Bewehrung, daher hier nicht enthalten.</p>
+          </aside>
+        </div>
+      </article>
+      <div id="pager-root"></div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

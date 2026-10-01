@@ -5,7 +5,8 @@ const GROUPS = [
     id: "mappe",
     title: "Mappe (Druck)",
     pages: [
-      { id: "mappe", href: "mappe.html", nr: "M", label: "Prüfungsmappe" }
+      { id: "mappe", href: "mappe.html", nr: "M", label: "Prüfungsmappe" },
+      { id: "bew", href: "bewehrung.html", nr: "B", label: "Bewehrungsskizzen" }
     ]
   },
   {

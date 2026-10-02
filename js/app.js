@@ -49,10 +49,9 @@ const EXAM_PDFS = [
   { id: "feuerwehr", title: "Feuerwehrhaus 2016", file: "komplett/160128_Feuerwehrhaus_komplett.pdf", tag: "komplett" },
   { id: "sporthalle", title: "Sporthalle 2016", file: "komplett/160425_Sporthalle_komplett.pdf", tag: "komplett" },
   { id: "dg", title: "Dachgeschossausbau 2016", file: "komplett/160608_Dachgeschossausbau_komplett.pdf", tag: "komplett" },
-  { id: "wohnbau", title: "Wohnbau 2014", file: "140923_Wohnbau_FTW_Angabe.pdf", tag: "Angabe" },
-  { id: "ausstell", title: "Ausstellungsgebäude 08.06.2017", file: "170608_FTW_Angabe_Ausstellungsgebäude.pdf", tag: "Angabe" },
-  { id: "betrieb", title: "Betriebsgebäude 2017", file: "170907_Betriebsgebäude_FTW_Ausarbeitung.pdf", tag: "Ausarbeitung" },
-  { id: "ausstell2", title: "Ausstellungsgebäude 18.09.2017", file: "170915_FTW_Angabe.pdf", tag: "Angabe" }
+  { id: "wohnbau", title: "Wohnbau 2014", file: "komplett/140923_Wohnbau_komplett.pdf", tag: "komplett, neu ausgearbeitet" },
+  { id: "ausstell", title: "Ausstellungsgebäude 08.06.2017", file: "komplett/170608_Ausstellungsgebaeude_komplett.pdf", tag: "komplett" },
+  { id: "ausstell2", title: "Ausstellungsgebäude 18.09.2017", file: "komplett/170915_Ausstellungsgebaeude_komplett.pdf", tag: "komplett, neu ausgearbeitet" }
 ];
 
 function allPages() {
